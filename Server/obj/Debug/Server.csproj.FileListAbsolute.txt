@@ -14,3 +14,11 @@ C:\DEVELOPER\TcpSocket\Server\bin\Debug\ServerData.pdb
 C:\DEVELOPER\TcpSocket\Server\obj\Debug\Server.csprojResolveAssemblyReference.cache
 C:\DEVELOPER\TcpSocket\Server\obj\Debug\Server.exe
 C:\DEVELOPER\TcpSocket\Server\obj\Debug\Server.pdb
+D:\2018\TcpSocket\Server\bin\Debug\Server.exe.config
+D:\2018\TcpSocket\Server\bin\Debug\Server.exe
+D:\2018\TcpSocket\Server\bin\Debug\Server.pdb
+D:\2018\TcpSocket\Server\bin\Debug\ServerData.dll
+D:\2018\TcpSocket\Server\bin\Debug\ServerData.pdb
+D:\2018\TcpSocket\Server\obj\Debug\Server.csprojResolveAssemblyReference.cache
+D:\2018\TcpSocket\Server\obj\Debug\Server.exe
+D:\2018\TcpSocket\Server\obj\Debug\Server.pdb

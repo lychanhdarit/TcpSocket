@@ -13,3 +13,6 @@ C:\DEVELOPER\TcpSocket\Clients\bin\Debug\ServerData.dll
 C:\DEVELOPER\TcpSocket\Clients\bin\Debug\ServerData.pdb
 C:\DEVELOPER\TcpSocket\Clients\obj\Debug\Clients.exe
 C:\DEVELOPER\TcpSocket\Clients\obj\Debug\Clients.pdb
+D:\2018\TcpSocket\Clients\bin\Debug\Clients.exe.config
+D:\2018\TcpSocket\Clients\obj\Debug\Clients.exe
+D:\2018\TcpSocket\Clients\obj\Debug\Clients.pdb

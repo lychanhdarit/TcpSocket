@@ -24,14 +24,14 @@ namespace Server
             string PORT = ConfigurationManager.AppSettings["Port"].ToString();
             string IP_CORE_ADDRESS = ConfigurationManager.AppSettings["IPAddress"].ToString();
 
-            IP_CORE_ADDRESS = Packet.GetIp4Address();
+            //IP_CORE_ADDRESS = Packet.GetIp4Address();
 
             IPEndPoint ip = new IPEndPoint(IPAddress.Parse(IP_CORE_ADDRESS), int.Parse(PORT));
             listenerSocket.Bind(ip);
-           
+
 
             PrintWithColorGreen("---------------------------------------------------------------------------");
-            PrintWithColorGreen("IP Host: " + IP_CORE_ADDRESS + " - Port: "+PORT);
+            PrintWithColorGreen("IP Host: " + IP_CORE_ADDRESS + " - Port: " + PORT);
             PrintWithColorGreen("Waiting for a connection from " + IP_CORE_ADDRESS + " on port " + PORT + " connection ...");
             PrintWithColorGreen("---------------------------------------------------------------------------");
 
@@ -60,52 +60,75 @@ namespace Server
                 Buffer = new byte[clientSocket.SendBufferSize];
                 try
                 {
+                    //try
+                    //StateObject state = (StateObject)ar.AsyncState;
                     readBytes = clientSocket.Receive(Buffer);
+                    //PrintWithColorRed("Disconnect! ");
+                    //return;
+                    //catch
+
+                    //PrintWithColor("Done!");
+
+                    if (readBytes > 0)
+                    {
+                        //Packet packet = new Packet(Buffer);
+                        //string sl = Encoding.UTF8.GetString(Buffer, 0, Buffer.Length);
+                        
+                        //string sl = Encoding.ASCII.GetString(Buffer, 0, Buffer.Length);
+
+                        StringBuilder MsgBuilder = new StringBuilder();
+                        String msgFull = MsgBuilder.Append(Encoding.ASCII.GetString(Buffer, 0, Buffer.Length)).ToString();
+
+                        string msg = msgFull.Replace("\0", string.Empty);
+
+
+                        Console.WriteLine(DateTime.Now.ToString() + ": ");
+                        PrintWithColor(msg);
+                        PrintWithColorSilver("---------------------------");
+                        Utilities.WriteLog(msg);
+
+                        ////DataManager(packet);
+                        ////Print  Color
+                        //PrintWithColor(packet.ToString());
+
+                    }
                 }
-                catch
+                catch(Exception c)
                 {
+                    PrintWithColorRed(c.Message);
                     PrintWithColorRed("Disconnect! ");
                     return;
                 }
-
-                if (readBytes > 0)
-                {
-                    Packet packet = new Packet(Buffer);
-                    //DataManager(packet);
-
-                    //Print  Color
-                    PrintWithColor(packet.Gdata[packet.Gdata.Count - 1]);
-
-                }
-
-            
-
-        }
-    }
-    static string BytesToStringConverted(byte[] bytes)
-    {
-        using (var stream = new MemoryStream(bytes))
-        {
-            using (var streamReader = new StreamReader(stream))
-            {
-                return streamReader.ReadToEnd();
             }
         }
-    }
-    public static void DataManager(Packet p)
-    {
-        switch (p.packetType)
+        public static string BytesToString(byte[] Buffer)
         {
-            case PacketType.Chat:
-                foreach (ClientData c in _clients)
-                {
-                    c.clientSocket.Send(p.ToBytes());
-                }
-                //Console.WriteLine("Received a packet for registration Responding...");
-                //Packet ps = new Packet(PacketType.Registration);
-                break;
+            return (Encoding.Default.GetString(Buffer,0,Buffer.Length - 1)).Split(new string[] { "\r\n", "\r", "\n" },StringSplitOptions.None)[0];
         }
-    }
+        static string BytesToStringConverted(byte[] bytes)
+        {
+            using (var stream = new MemoryStream(bytes))
+            {
+                using (var streamReader = new StreamReader(stream))
+                {
+                    return streamReader.ReadToEnd();
+                }
+            }
+        }
+        public static void DataManager(Packet p)
+        {
+            switch (p.packetType)
+            {
+                case PacketType.Chat:
+                    foreach (ClientData c in _clients)
+                    {
+                        c.clientSocket.Send(p.ToBytes());
+                    }
+                    //Console.WriteLine("Received a packet for registration Responding...");
+                    //Packet ps = new Packet(PacketType.Registration);
+                    break;
+            }
+        }
         #region Color
 
 
@@ -114,6 +137,15 @@ namespace Server
             //CyAn = 11
             ConsoleColor c = Console.ForegroundColor;
             Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine(data);
+            Console.ForegroundColor = c;
+        }
+
+        static void PrintWithColorSilver(string data)
+        {
+            //CyAn = 11
+            ConsoleColor c = Console.ForegroundColor;
+            Console.ForegroundColor = ConsoleColor.DarkGray;
             Console.WriteLine(data);
             Console.ForegroundColor = c;
         }
@@ -142,32 +174,32 @@ namespace Server
         //data manager
     }
     class ClientData
-{
-    public Socket clientSocket;
-    public Thread clientThread;
-    public string id;
+    {
+        public Socket clientSocket;
+        public Thread clientThread;
+        public string id;
 
-    public ClientData()
-    {
-        id = Guid.NewGuid().ToString();
-        clientThread = new Thread(Server.Data_IM);
-        clientThread.Start(clientSocket);
-        SendRegistrationPacket();
-    }
-    public ClientData(Socket _clientSocket)
-    {
-        this.clientSocket = _clientSocket;
-        id = Guid.NewGuid().ToString();
-        clientThread = new Thread(Server.Data_IM);
-        clientThread.Start(clientSocket);
-        SendRegistrationPacket();
-    }
+        public ClientData()
+        {
+            id = Guid.NewGuid().ToString();
+            clientThread = new Thread(Server.Data_IM);
+            clientThread.Start(clientSocket);
+            SendRegistrationPacket();
+        }
+        public ClientData(Socket _clientSocket)
+        {
+            this.clientSocket = _clientSocket;
+            id = Guid.NewGuid().ToString();
+            clientThread = new Thread(Server.Data_IM);
+            clientThread.Start(clientSocket);
+            SendRegistrationPacket();
+        }
 
-    public void SendRegistrationPacket()
-    {
-        Packet p = new Packet(PacketType.Registration, "server");
-        p.Gdata.Add(id);
-        clientSocket.Send(p.ToBytes());
+        public void SendRegistrationPacket()
+        {
+            Packet p = new Packet(PacketType.Registration, "server");
+            p.Gdata.Add(id);
+            clientSocket.Send(p.ToBytes());
+        }
     }
-}
 }
