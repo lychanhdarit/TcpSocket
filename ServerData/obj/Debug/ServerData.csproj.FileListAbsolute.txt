@@ -1,0 +1,4 @@
+C:\DEVELOPER\Socket\ServerData\bin\Debug\ServerData.dll
+C:\DEVELOPER\Socket\ServerData\bin\Debug\ServerData.pdb
+C:\DEVELOPER\Socket\ServerData\obj\Debug\ServerData.dll
+C:\DEVELOPER\Socket\ServerData\obj\Debug\ServerData.pdb
