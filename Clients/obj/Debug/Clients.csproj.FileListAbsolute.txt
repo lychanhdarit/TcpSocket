@@ -7,5 +7,9 @@ C:\DEVELOPER\Socket\Clients\obj\Debug\Clients.csprojResolveAssemblyReference.cac
 C:\DEVELOPER\Socket\Clients\obj\Debug\Clients.exe
 C:\DEVELOPER\Socket\Clients\obj\Debug\Clients.pdb
 C:\DEVELOPER\TcpSocket\Clients\bin\Debug\Clients.exe.config
+C:\DEVELOPER\TcpSocket\Clients\bin\Debug\Clients.exe
+C:\DEVELOPER\TcpSocket\Clients\bin\Debug\Clients.pdb
+C:\DEVELOPER\TcpSocket\Clients\bin\Debug\ServerData.dll
+C:\DEVELOPER\TcpSocket\Clients\bin\Debug\ServerData.pdb
 C:\DEVELOPER\TcpSocket\Clients\obj\Debug\Clients.exe
 C:\DEVELOPER\TcpSocket\Clients\obj\Debug\Clients.pdb

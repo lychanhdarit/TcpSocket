@@ -6,3 +6,11 @@ C:\DEVELOPER\Socket\Server\bin\Debug\ServerData.pdb
 C:\DEVELOPER\Socket\Server\obj\Debug\Server.csprojResolveAssemblyReference.cache
 C:\DEVELOPER\Socket\Server\obj\Debug\Server.exe
 C:\DEVELOPER\Socket\Server\obj\Debug\Server.pdb
+C:\DEVELOPER\TcpSocket\Server\bin\Debug\Server.exe.config
+C:\DEVELOPER\TcpSocket\Server\bin\Debug\Server.exe
+C:\DEVELOPER\TcpSocket\Server\bin\Debug\Server.pdb
+C:\DEVELOPER\TcpSocket\Server\bin\Debug\ServerData.dll
+C:\DEVELOPER\TcpSocket\Server\bin\Debug\ServerData.pdb
+C:\DEVELOPER\TcpSocket\Server\obj\Debug\Server.csprojResolveAssemblyReference.cache
+C:\DEVELOPER\TcpSocket\Server\obj\Debug\Server.exe
+C:\DEVELOPER\TcpSocket\Server\obj\Debug\Server.pdb
