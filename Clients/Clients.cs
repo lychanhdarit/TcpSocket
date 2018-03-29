@@ -25,7 +25,7 @@ namespace Clients
             string ip = "192.168.2.124";// Console.ReadLine();
 
             master = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            IPEndPoint IP = new IPEndPoint(IPAddress.Parse(ip),9999);
+            IPEndPoint IP = new IPEndPoint(IPAddress.Parse(ip),9979);
             try
             {
                 master.Connect(IP);
@@ -40,10 +40,10 @@ namespace Clients
 
             Thread t = new Thread(Data_IM);
             t.Start();
-            for(int i=0;i<10;i++)
-            {
+            //for(int i=0;i<10;i++)
+            //{
                 Console.Write("::>");
-                string input = RandomString(50)+"\n";//Console.ReadLine();
+                string input = Console.ReadLine();
                 Console.Write(input);
 
 
@@ -51,7 +51,7 @@ namespace Clients
                 p.Gdata.Add(name);
                 p.Gdata.Add(input);
                 master.Send(p.ToBytes());
-            }
+            //}
         }
         private static Random random = new Random();
         public static string RandomString(int length)

@@ -77,7 +77,7 @@ namespace Server
                         //string sl = Encoding.ASCII.GetString(Buffer, 0, Buffer.Length);
 
                         StringBuilder MsgBuilder = new StringBuilder();
-                        String msgFull = MsgBuilder.Append(Encoding.ASCII.GetString(Buffer, 0, Buffer.Length)).ToString();
+                        String msgFull = MsgBuilder.Append(Encoding.ASCII.GetString(Buffer, 0, readBytes)).ToString();
 
                         string msg = msgFull.Replace("\0", string.Empty);
 

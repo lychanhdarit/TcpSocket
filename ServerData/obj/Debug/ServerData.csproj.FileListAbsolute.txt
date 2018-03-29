@@ -6,3 +6,7 @@ D:\2018\TcpSocket\ServerData\bin\Debug\ServerData.dll
 D:\2018\TcpSocket\ServerData\bin\Debug\ServerData.pdb
 D:\2018\TcpSocket\ServerData\obj\Debug\ServerData.dll
 D:\2018\TcpSocket\ServerData\obj\Debug\ServerData.pdb
+C:\DEVELOPER\TcpSocket\ServerData\bin\Debug\ServerData.dll
+C:\DEVELOPER\TcpSocket\ServerData\bin\Debug\ServerData.pdb
+C:\DEVELOPER\TcpSocket\ServerData\obj\Debug\ServerData.dll
+C:\DEVELOPER\TcpSocket\ServerData\obj\Debug\ServerData.pdb

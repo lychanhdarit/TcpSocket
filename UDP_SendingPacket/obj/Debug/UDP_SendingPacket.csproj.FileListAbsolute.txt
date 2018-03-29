@@ -1,0 +1,5 @@
+C:\DEVELOPER\TcpSocket\UDP_SendingPacket\bin\Debug\UDP_SendingPacket.exe.config
+C:\DEVELOPER\TcpSocket\UDP_SendingPacket\bin\Debug\UDP_SendingPacket.exe
+C:\DEVELOPER\TcpSocket\UDP_SendingPacket\bin\Debug\UDP_SendingPacket.pdb
+C:\DEVELOPER\TcpSocket\UDP_SendingPacket\obj\Debug\UDP_SendingPacket.exe
+C:\DEVELOPER\TcpSocket\UDP_SendingPacket\obj\Debug\UDP_SendingPacket.pdb
