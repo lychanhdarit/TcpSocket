@@ -24,7 +24,7 @@ namespace Server
             string PORT = ConfigurationManager.AppSettings["Port"].ToString();
             string IP_CORE_ADDRESS = ConfigurationManager.AppSettings["IPAddress"].ToString();
 
-            //IP_CORE_ADDRESS = Packet.GetIp4Address();
+            IP_CORE_ADDRESS = Packet.GetIp4Address();
 
             IPEndPoint ip = new IPEndPoint(IPAddress.Parse(IP_CORE_ADDRESS), int.Parse(PORT));
             listenerSocket.Bind(ip);
@@ -52,7 +52,7 @@ namespace Server
         public static void Data_IM(object cSocket)
         {
             Socket clientSocket = (Socket)cSocket;
-            byte[] Buffer;
+            byte[] Buffer = new byte[1024];
             int readBytes = 0;
             for (;;)
             {
@@ -77,9 +77,15 @@ namespace Server
                         //string sl = Encoding.ASCII.GetString(Buffer, 0, Buffer.Length);
 
                         StringBuilder MsgBuilder = new StringBuilder();
-                        String msgFull = MsgBuilder.Append(Encoding.ASCII.GetString(Buffer, 0, readBytes)).ToString();
 
-                        string msg = msgFull.Replace("\0", string.Empty);
+                       
+                        String msgFull = MsgBuilder.Append(Encoding.ASCII.GetString(Buffer, 0, Buffer.Length-1)).ToString();
+
+                        string msg = GetHexStringFrom(Buffer).Replace("-00", string.Empty);// msgFull.Replace("\0", string.Empty);
+
+                        msg = BitConvert(Buffer);
+
+
 
 
                         Console.WriteLine(DateTime.Now.ToString() + ": ");
@@ -100,6 +106,19 @@ namespace Server
                     return;
                 }
             }
+        }
+        public static string BitConvert(byte[] byteArray)
+        {
+            string result = "";
+            for(int i=0;i< byteArray.Length;i++ )
+            {
+                result += Convert.ToString(byteArray[i], 2);
+            }
+            return result;
+        }
+        public static string GetHexStringFrom(byte[] byteArray)
+        {
+            return BitConverter.ToString(byteArray); //To convert the whole array
         }
         public static string BytesToString(byte[] Buffer)
         {
