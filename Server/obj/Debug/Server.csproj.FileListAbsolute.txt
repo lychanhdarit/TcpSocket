@@ -23,3 +23,4 @@ C:\DEVELOPER\TcpSocket\Server\bin\Debug\ServerData.pdb
 C:\DEVELOPER\TcpSocket\Server\obj\Debug\Server.csprojResolveAssemblyReference.cache
 C:\DEVELOPER\TcpSocket\Server\obj\Debug\Server.exe
 C:\DEVELOPER\TcpSocket\Server\obj\Debug\Server.pdb
+D:\2018\TcpSocket\Server\bin\Debug\Oracle.DataAccess.dll

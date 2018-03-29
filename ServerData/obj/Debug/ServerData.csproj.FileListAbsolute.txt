@@ -13,3 +13,5 @@ C:\DEVELOPER\TcpSocket\ServerData\bin\Debug\Microsoft.ApplicationBlocks.Data.dll
 C:\DEVELOPER\TcpSocket\ServerData\bin\Debug\Oracle.DataAccess.dll
 C:\DEVELOPER\TcpSocket\ServerData\obj\Debug\ServerData.dll
 C:\DEVELOPER\TcpSocket\ServerData\obj\Debug\ServerData.pdb
+D:\2018\TcpSocket\ServerData\bin\Debug\ServerData.dll.config
+D:\2018\TcpSocket\ServerData\bin\Debug\Oracle.DataAccess.dll

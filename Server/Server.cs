@@ -24,7 +24,7 @@ namespace Server
             string PORT = ConfigurationManager.AppSettings["Port"].ToString();
             string IP_CORE_ADDRESS = ConfigurationManager.AppSettings["IPAddress"].ToString();
 
-            IP_CORE_ADDRESS = Packet.GetIp4Address();
+            //IP_CORE_ADDRESS = Packet.GetIp4Address();
 
             IPEndPoint ip = new IPEndPoint(IPAddress.Parse(IP_CORE_ADDRESS), int.Parse(PORT));
             listenerSocket.Bind(ip);
@@ -83,13 +83,14 @@ namespace Server
 
                         string msg = GetHexStringFrom(Buffer).Replace("-00", string.Empty);// msgFull.Replace("\0", string.Empty);
 
-                        msg = BitConvert(Buffer);
+                        //msg = BitConvert(Buffer);
 
 
 
 
                         Console.WriteLine(DateTime.Now.ToString() + ": ");
-                        PrintWithColor(msg);
+                        PrintWithColor("Hexa: "+ msg);
+                        PrintWithColor("Bit: " + BitConvert(Buffer));
                         PrintWithColorSilver("---------------------------");
                         Utilities.WriteLog(msg);
 
@@ -107,10 +108,13 @@ namespace Server
                 }
             }
         }
-        public static string BitConvert(byte[] byteArray)
+        public static string BitConvert(byte[] data)
         {
             string result = "";
-            for(int i=0;i< byteArray.Length;i++ )
+
+            var byteArray = data.TakeWhile((v, index) => data.Skip(index).Any(w => w != 0x00)).ToArray();
+
+            for (int i=0;i< byteArray.Length;i++ )
             {
                 result += Convert.ToString(byteArray[i], 2);
             }
@@ -120,8 +124,10 @@ namespace Server
         {
             return BitConverter.ToString(byteArray); //To convert the whole array
         }
-        public static string BytesToString(byte[] Buffer)
+        public static string BytesToString(byte[] data)
         {
+            var Buffer = data.TakeWhile((v, index) => data.Skip(index).Any(w => w != 0x00)).ToArray();
+            
             return (Encoding.Default.GetString(Buffer,0,Buffer.Length - 1)).Split(new string[] { "\r\n", "\r", "\n" },StringSplitOptions.None)[0];
         }
         static string BytesToStringConverted(byte[] bytes)
