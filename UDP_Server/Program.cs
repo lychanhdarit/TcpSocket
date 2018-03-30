@@ -55,7 +55,14 @@ namespace UDP_Server
 
                 if (recv == 0)
                     break;
-                Console.WriteLine(Encoding.ASCII.GetString(data, 0, recv));
+
+                
+                Console.WriteLine("Receive:" + Encoding.ASCII.GetString(data, 0, recv));
+
+                newSocket.Send(Encoding.ASCII.GetBytes("#1:359672050411365:2:*,00000000,UP,12031e,0f1806#"));
+
+                Console.WriteLine("Send:" + Encoding.ASCII.GetString(data, 0, recv));
+
             }
             newSocket.Close();
 

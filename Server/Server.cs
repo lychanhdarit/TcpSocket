@@ -60,43 +60,22 @@ namespace Server
                 Buffer = new byte[clientSocket.SendBufferSize];
                 try
                 {
-                    //try
-                    //StateObject state = (StateObject)ar.AsyncState;
+                    
                     readBytes = clientSocket.Receive(Buffer);
-                    //PrintWithColorRed("Disconnect! ");
-                    //return;
-                    //catch
-
-                    //PrintWithColor("Done!");
-
+                    
                     if (readBytes > 0)
                     {
                         //Packet packet = new Packet(Buffer);
-                        //string sl = Encoding.UTF8.GetString(Buffer, 0, Buffer.Length);
-                        
-                        //string sl = Encoding.ASCII.GetString(Buffer, 0, Buffer.Length);
-
-                        StringBuilder MsgBuilder = new StringBuilder();
-
-                       
-                        String msgFull = MsgBuilder.Append(Encoding.ASCII.GetString(Buffer, 0, Buffer.Length-1)).ToString();
-
-                        string msg = GetHexStringFrom(Buffer);
-
-                        //msg = BitConvert(Buffer);
-
-
-
+                        string msg = ConvertType.GetHexStringFrom(Buffer);
 
                         Console.WriteLine(DateTime.Now.ToString() + ": ");
                         PrintWithColor("Hexa: "+ msg);
-                        PrintWithColor("Bit: " + BitConvert(Buffer));
+                        //PrintWithColor("Bit: " + BitConvert(Buffer));
                         PrintWithColorSilver("---------------------------");
                         Utilities.WriteLog(msg);
 
                         ////DataManager(packet);
                         ////Print  Color
-                        //PrintWithColor(packet.ToString());
 
                     }
                 }
@@ -108,39 +87,7 @@ namespace Server
                 }
             }
         }
-        public static string BitConvert(byte[] data)
-        {
-            string result = "";
-
-            var byteArray = data.TakeWhile((v, index) => data.Skip(index).Any(w => w != 0x00)).ToArray();
-
-            for (int i=0;i< byteArray.Length;i++ )
-            {
-                result += Convert.ToString(byteArray[i], 2);
-            }
-            return result;
-        }
-        public static string GetHexStringFrom(byte[] data)
-        {
-            var byteArray = data.TakeWhile((v, index) => data.Skip(index).Any(w => w != 0x00)).ToArray();
-            return BitConverter.ToString(byteArray); //To convert the whole array
-        }
-        public static string BytesToString(byte[] data)
-        {
-            var Buffer = data.TakeWhile((v, index) => data.Skip(index).Any(w => w != 0x00)).ToArray();
-            
-            return (Encoding.Default.GetString(Buffer,0,Buffer.Length - 1)).Split(new string[] { "\r\n", "\r", "\n" },StringSplitOptions.None)[0];
-        }
-        static string BytesToStringConverted(byte[] bytes)
-        {
-            using (var stream = new MemoryStream(bytes))
-            {
-                using (var streamReader = new StreamReader(stream))
-                {
-                    return streamReader.ReadToEnd();
-                }
-            }
-        }
+        
         public static void DataManager(Packet p)
         {
             switch (p.packetType)
