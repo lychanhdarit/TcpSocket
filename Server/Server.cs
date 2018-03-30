@@ -81,7 +81,7 @@ namespace Server
                        
                         String msgFull = MsgBuilder.Append(Encoding.ASCII.GetString(Buffer, 0, Buffer.Length-1)).ToString();
 
-                        string msg = GetHexStringFrom(Buffer).Replace("-00", string.Empty);// msgFull.Replace("\0", string.Empty);
+                        string msg = GetHexStringFrom(Buffer);
 
                         //msg = BitConvert(Buffer);
 
@@ -120,8 +120,9 @@ namespace Server
             }
             return result;
         }
-        public static string GetHexStringFrom(byte[] byteArray)
+        public static string GetHexStringFrom(byte[] data)
         {
+            var byteArray = data.TakeWhile((v, index) => data.Skip(index).Any(w => w != 0x00)).ToArray();
             return BitConverter.ToString(byteArray); //To convert the whole array
         }
         public static string BytesToString(byte[] data)
