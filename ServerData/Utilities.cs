@@ -46,7 +46,8 @@ namespace ServerData
             StreamWriter sw = null;
             try
             {
-                sw = new StreamWriter(AppDomain.CurrentDomain.BaseDirectory + "LogFile.txt", true);
+                string filename = DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString();
+                sw = new StreamWriter(AppDomain.CurrentDomain.BaseDirectory + "Log-"+ filename + ".txt", true);
                 sw.WriteLine(DateTime.Now.ToString("g") + ": " + message);
                 sw.Flush();
                 sw.Close();

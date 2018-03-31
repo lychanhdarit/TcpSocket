@@ -66,10 +66,10 @@ namespace Server
                     if (readBytes > 0)
                     {
                         //Packet packet = new Packet(Buffer);
-                        string msg = ConvertType.GetHexStringFrom(Buffer);
+                        string msg = GetHexStringFrom(Buffer);
 
                         Console.WriteLine(DateTime.Now.ToString() + ": ");
-                        PrintWithColor("Hexa: "+ msg);
+                        PrintWithColor(msg);
                         //PrintWithColor("Bit: " + BitConvert(Buffer));
                         PrintWithColorSilver("---------------------------");
                         Utilities.WriteLog(msg);
@@ -87,7 +87,11 @@ namespace Server
                 }
             }
         }
-        
+        public static string GetHexStringFrom(byte[] data)
+        {
+            byte[] byteArray=  data.TakeWhile((v, index) => data.Skip(index).Any(w => w != 0x00)).ToArray();
+            return BitConverter.ToString(byteArray).Replace("-",string.Empty); //To convert the whole array
+        }
         public static void DataManager(Packet p)
         {
             switch (p.packetType)

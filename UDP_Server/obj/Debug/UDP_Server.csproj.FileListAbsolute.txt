@@ -7,3 +7,13 @@ C:\DEVELOPER\TcpSocket\UDP_Server\bin\Debug\ServerData.pdb
 C:\DEVELOPER\TcpSocket\UDP_Server\obj\Debug\UDP_Server.csprojResolveAssemblyReference.cache
 C:\DEVELOPER\TcpSocket\UDP_Server\obj\Debug\UDP_Server.exe
 C:\DEVELOPER\TcpSocket\UDP_Server\obj\Debug\UDP_Server.pdb
+D:\2018\TcpSocket\UDP_Server\bin\Debug\UDP_Server.exe.config
+D:\2018\TcpSocket\UDP_Server\bin\Debug\UDP_Server.exe
+D:\2018\TcpSocket\UDP_Server\bin\Debug\UDP_Server.pdb
+D:\2018\TcpSocket\UDP_Server\bin\Debug\ServerData.dll
+D:\2018\TcpSocket\UDP_Server\bin\Debug\Oracle.DataAccess.dll
+D:\2018\TcpSocket\UDP_Server\bin\Debug\ServerData.pdb
+D:\2018\TcpSocket\UDP_Server\obj\Debug\UDP_Server.csprojResolveAssemblyReference.cache
+D:\2018\TcpSocket\UDP_Server\obj\Debug\UDP_Server.exe
+D:\2018\TcpSocket\UDP_Server\obj\Debug\UDP_Server.pdb
+D:\2018\TcpSocket\UDP_Server\bin\Debug\Oracle.ManagedDataAccess.dll
