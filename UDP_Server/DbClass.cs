@@ -50,6 +50,7 @@ namespace UDP_Server
 
             catch (OracleException e)
             {
+                getConn().Close();
                 Console.WriteLine(e.ToString());
                 Utilities.WriteLog(e.ToString());
             }

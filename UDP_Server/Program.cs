@@ -34,7 +34,9 @@ namespace UDP_Server
             recv = newSocket.ReceiveFrom(data, 0, ref tmpRemote);
             PrintWithColorGreen("--------------------------------------------------------------------------");
             PrintWithColor("Received from: "+ tmpRemote.ToString());
+
             PrintWithColor(Encoding.ASCII.GetString(data, 0, recv));
+            SendSocketData(Encoding.ASCII.GetString(data, 0, recv), newSocket, tmpRemote);
             PrintWithColorSilver("-----------------------------------------------------------");
 
             
@@ -76,11 +78,7 @@ namespace UDP_Server
                     PrintWithColorRed(c.Message);
                     Utilities.WriteLog(c.Message);
                 }
-
-              
-
-               
-
+                
             }
             newSocket.Close();
 
@@ -106,14 +104,27 @@ namespace UDP_Server
         {
             DbClass _db = new DbClass();
             string sendString = "";
-            
             string[] Adta = data.Split(',');
+
+            string[] StringTFirstKey = ConfigurationManager.AppSettings["StringT"].ToString().Split(',');
+            string DeviceID = ConfigurationManager.AppSettings["deviceID"].ToString();
+            //Excute to DB
+            if (StringTFirstKey.Length>1)
+            {
+                if(data.IndexOf(StringTFirstKey[0]) >-1 || data.IndexOf(StringTFirstKey[1]) >-1 )
+                {
+                    _db.excuteMsgToDB(int.Parse(DeviceID), data);
+                }
+            }
+            
+
+            // Send Back
             switch (TypeDevices(data))
             {
                 case "UP":
                     if(Adta.Length>5)
                     {
-                        _db.excuteMsgToDB(9999, data);
+                       
 
                         sendString = Adta[0] + "," + Adta[1] + "," + Adta[2] + "," + Adta[4] + "," + Adta[5] + "#";
                         socket.SendTo(Encoding.ASCII.GetBytes(sendString), ep);
@@ -125,7 +136,7 @@ namespace UDP_Server
                 case "ML":
                     if (Adta.Length > 7)
                     {
-                        _db.excuteMsgToDB(9999, data);
+                      
 
                         sendString = Adta[0] +","+ Adta[1] + "," + Adta[2] + "," + Adta[6] + "," + Adta[7] + "#";
                         socket.SendTo(Encoding.ASCII.GetBytes(sendString), ep);
@@ -137,7 +148,7 @@ namespace UDP_Server
                 case "ST":
                     if (Adta.Length > 8)
                     {
-                        _db.excuteMsgToDB(9999, data);
+                       
 
                         sendString = Adta[0] + "," + Adta[1] + "," + Adta[2] + "," + Adta[8] + "," + Adta[8] + "#";
                         socket.SendTo(Encoding.ASCII.GetBytes(sendString), ep);
