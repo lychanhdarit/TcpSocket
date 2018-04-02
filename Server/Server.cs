@@ -51,16 +51,20 @@ namespace Server
        
         public static void Data_IM(object cSocket)
         {
+            DbClass _db = new DbClass();
             Socket clientSocket = (Socket)cSocket;
             byte[] Buffer = new byte[1024];
             int readBytes = 0;
+            string[] StringTFirstKey = ConfigurationManager.AppSettings["StringT"].ToString().Split(',');
+            string DeviceID = ConfigurationManager.AppSettings["deviceID"].ToString();
             for (;;)
             {
 
                 Buffer = new byte[clientSocket.SendBufferSize];
                 try
                 {
-                    
+                   
+
                     readBytes = clientSocket.Receive(Buffer);
                     
                     if (readBytes > 0)
@@ -73,6 +77,9 @@ namespace Server
                         //PrintWithColor("Bit: " + BitConvert(Buffer));
                         PrintWithColorSilver("---------------------------");
                         Utilities.WriteLog(msg);
+
+                        //_db.excuteMsgToDB(int.Parse(DeviceID), msg);
+
 
                         ////DataManager(packet);
                         ////Print  Color

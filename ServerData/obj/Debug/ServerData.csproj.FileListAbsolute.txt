@@ -17,3 +17,10 @@ D:\2018\TcpSocket\ServerData\bin\Debug\ServerData.dll.config
 D:\2018\TcpSocket\ServerData\bin\Debug\Oracle.DataAccess.dll
 C:\DEVELOPER\TcpSocket\ServerData\obj\Debug\ServerData.csprojResolveAssemblyReference.cache
 D:\2018\TcpSocket\ServerData\obj\Debug\ServerData.csprojResolveAssemblyReference.cache
+C:\DEVELOPER\FINAL SOCKET\TcpSocket\ServerData\obj\Debug\ServerData.csprojResolveAssemblyReference.cache
+C:\DEVELOPER\FINAL SOCKET\TcpSocket\ServerData\obj\Debug\ServerData.dll
+C:\DEVELOPER\FINAL SOCKET\TcpSocket\ServerData\obj\Debug\ServerData.pdb
+C:\DEVELOPER\FINAL SOCKET\TcpSocket\ServerData\bin\Debug\ServerData.dll.config
+C:\DEVELOPER\FINAL SOCKET\TcpSocket\ServerData\bin\Debug\ServerData.dll
+C:\DEVELOPER\FINAL SOCKET\TcpSocket\ServerData\bin\Debug\ServerData.pdb
+C:\DEVELOPER\FINAL SOCKET\TcpSocket\ServerData\bin\Debug\Oracle.ManagedDataAccess.dll

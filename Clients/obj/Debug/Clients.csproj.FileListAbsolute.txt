@@ -18,3 +18,12 @@ C:\DEVELOPER\TcpSocket\Clients\bin\Debug\ServerData.pdb
 C:\DEVELOPER\TcpSocket\Clients\obj\Debug\Clients.csprojResolveAssemblyReference.cache
 C:\DEVELOPER\TcpSocket\Clients\obj\Debug\Clients.exe
 C:\DEVELOPER\TcpSocket\Clients\obj\Debug\Clients.pdb
+C:\DEVELOPER\FINAL SOCKET\TcpSocket\Clients\bin\Debug\Clients.exe.config
+C:\DEVELOPER\FINAL SOCKET\TcpSocket\Clients\obj\Debug\Clients.exe
+C:\DEVELOPER\FINAL SOCKET\TcpSocket\Clients\obj\Debug\Clients.pdb
+C:\DEVELOPER\FINAL SOCKET\TcpSocket\Clients\bin\Debug\Clients.exe
+C:\DEVELOPER\FINAL SOCKET\TcpSocket\Clients\bin\Debug\Clients.pdb
+C:\DEVELOPER\FINAL SOCKET\TcpSocket\Clients\bin\Debug\ServerData.dll
+C:\DEVELOPER\FINAL SOCKET\TcpSocket\Clients\bin\Debug\ServerData.pdb
+C:\DEVELOPER\FINAL SOCKET\TcpSocket\Clients\obj\Debug\Clients.csprojResolveAssemblyReference.cache
+C:\DEVELOPER\FINAL SOCKET\TcpSocket\Clients\bin\Debug\Oracle.ManagedDataAccess.dll

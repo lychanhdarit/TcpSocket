@@ -1,5 +1,5 @@
 ﻿using Microsoft.ApplicationBlocks.Data;
-using Oracle.DataAccess.Client;
+using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections;
 using System.Collections.Generic;

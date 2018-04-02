@@ -4,3 +4,8 @@ C:\DEVELOPER\TcpSocket\UDP_SendingPacket\bin\Debug\UDP_SendingPacket.pdb
 C:\DEVELOPER\TcpSocket\UDP_SendingPacket\obj\Debug\UDP_SendingPacket.csprojResolveAssemblyReference.cache
 C:\DEVELOPER\TcpSocket\UDP_SendingPacket\obj\Debug\UDP_SendingPacket.exe
 C:\DEVELOPER\TcpSocket\UDP_SendingPacket\obj\Debug\UDP_SendingPacket.pdb
+C:\DEVELOPER\FINAL SOCKET\TcpSocket\UDP_SendingPacket\bin\Debug\UDP_SendingPacket.exe.config
+C:\DEVELOPER\FINAL SOCKET\TcpSocket\UDP_SendingPacket\bin\Debug\UDP_SendingPacket.exe
+C:\DEVELOPER\FINAL SOCKET\TcpSocket\UDP_SendingPacket\bin\Debug\UDP_SendingPacket.pdb
+C:\DEVELOPER\FINAL SOCKET\TcpSocket\UDP_SendingPacket\obj\Debug\UDP_SendingPacket.exe
+C:\DEVELOPER\FINAL SOCKET\TcpSocket\UDP_SendingPacket\obj\Debug\UDP_SendingPacket.pdb

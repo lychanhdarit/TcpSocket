@@ -1,0 +1,13 @@
+﻿1>------ Rebuild All started: Project: ServerData, Configuration: Debug Any CPU ------
+2>------ Rebuild All started: Project: UDP_SendingPacket, Configuration: Debug Any CPU ------
+2>C:\Program Files (x86)\MSBuild\14.0\bin\Microsoft.Common.CurrentVersion.targets(1820,5): warning MSB3245: Could not resolve this reference. Could not locate the assembly "Oracle.DataAccess". Check to make sure the assembly exists on disk. If this reference is required by your code, you may get compilation errors.
+2>  UDP_SendingPacket -> C:\DEVELOPER\FINAL SOCKET\TcpSocket\UDP_SendingPacket\bin\Debug\UDP_SendingPacket.exe
+1>C:\DEVELOPER\FINAL SOCKET\TcpSocket\ServerData\DBClass.cs(17,13,17,19): warning CS0414: The field 'DBClass.result' is assigned but its value is never used
+1>  ServerData -> C:\DEVELOPER\FINAL SOCKET\TcpSocket\ServerData\bin\Debug\ServerData.dll
+3>------ Rebuild All started: Project: Clients, Configuration: Debug Any CPU ------
+4>------ Rebuild All started: Project: Server, Configuration: Debug Any CPU ------
+5>------ Rebuild All started: Project: UDP_Server, Configuration: Debug Any CPU ------
+3>  Clients -> C:\DEVELOPER\FINAL SOCKET\TcpSocket\Clients\bin\Debug\Clients.exe
+5>  UDP_Server -> C:\DEVELOPER\FINAL SOCKET\TcpSocket\UDP_Server\bin\Debug\UDP_Server.exe
+4>  Server -> C:\DEVELOPER\FINAL SOCKET\TcpSocket\Server\bin\Debug\Server.exe
+========== Rebuild All: 5 succeeded, 0 failed, 0 skipped ==========

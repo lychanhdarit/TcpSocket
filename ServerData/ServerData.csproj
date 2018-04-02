@@ -33,8 +33,9 @@
     <Reference Include="Microsoft.ApplicationBlocks.Data">
       <HintPath>..\..\..\KHACH\leadtax.vn\Bin\Microsoft.ApplicationBlocks.Data.dll</HintPath>
     </Reference>
-    <Reference Include="Oracle.DataAccess">
-      <HintPath>..\..\G3_RECEIVER\G3_RECEIVER\Oracle.DataAccess.dll</HintPath>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.122.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.12.2.1100\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -47,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConvertType.cs" />
     <Compile Include="DBClass.cs" />
     <Compile Include="Packet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -54,6 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
