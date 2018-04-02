@@ -27,25 +27,25 @@ namespace UDP_Server
             Socket newSocket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
             newSocket.Bind(ep);
             PrintWithColorGreen("--------------------------------------------------------------------------");
-            PrintWithColorGreen(IP_CORE_ADDRESS + ": Wating for a client connect..."  );
+            PrintWithColorGreen(IP_CORE_ADDRESS + ": Wating for a client connect...");
 
             IPEndPoint sender = new IPEndPoint(IPAddress.Parse(IP_CORE_ADDRESS), int.Parse(PORT));
             EndPoint tmpRemote = (EndPoint)sender;
             recv = newSocket.ReceiveFrom(data, 0, ref tmpRemote);
             PrintWithColorGreen("--------------------------------------------------------------------------");
-            PrintWithColor("Received from: "+ tmpRemote.ToString());
+            PrintWithColor("Received from: " + tmpRemote.ToString());
 
             PrintWithColor(Encoding.ASCII.GetString(data, 0, recv));
             SendSocketData(Encoding.ASCII.GetString(data, 0, recv), newSocket, tmpRemote);
             PrintWithColorSilver("-----------------------------------------------------------");
 
-            
+
             //string welcome = "Welcome to server!";
             //data = Encoding.ASCII.GetBytes(welcome);
 
             if (newSocket.Connected)
             {
-               
+
                 SendSocketData(Encoding.ASCII.GetString(data, 0, recv), newSocket, tmpRemote);
 
                 //newSocket.Send(data);
@@ -66,19 +66,20 @@ namespace UDP_Server
                         break;
 
                     string dataRecv = Encoding.ASCII.GetString(data, 0, recv);
-                    PrintWithColor("Receive "+DateTime.Now.ToString()+":" );
+                    PrintWithColor("Receive " + DateTime.Now.ToString() + ":");
                     PrintWithColor(dataRecv);
                     PrintWithColorSilver("-----------------------------------------------------------");
                     Utilities.WriteLog("Receive " + DateTime.Now.ToString() + ":" + dataRecv);
 
-                    SendSocketData(dataRecv, newSocket,tmpRemote);
+                    SendSocketData(dataRecv, newSocket, tmpRemote);
                 }
-                catch (Exception c){
+                catch (Exception c)
+                {
 
                     PrintWithColorRed(c.Message);
                     Utilities.WriteLog(c.Message);
                 }
-                
+
             }
             newSocket.Close();
 
@@ -86,7 +87,7 @@ namespace UDP_Server
         }
         static string TypeDevices(string data)
         {
-            if(data.IndexOf("UP") > -1)
+            if (data.IndexOf("UP") > -1)
             {
                 return "UP";
             }
@@ -100,7 +101,7 @@ namespace UDP_Server
             }
             return "";
         }
-        static void SendSocketData(string data,Socket socket,EndPoint ep)
+        static void SendSocketData(string data, Socket socket, EndPoint ep)
         {
             DbClass _db = new DbClass();
             string sendString = "";
@@ -109,22 +110,28 @@ namespace UDP_Server
             string[] StringTFirstKey = ConfigurationManager.AppSettings["StringT"].ToString().Split(',');
             string DeviceID = ConfigurationManager.AppSettings["deviceID"].ToString();
             //Excute to DB
-            if (StringTFirstKey.Length>1)
+            if (StringTFirstKey.Length > 0)
             {
-                if(data.IndexOf(StringTFirstKey[0]) >-1 || data.IndexOf(StringTFirstKey[1]) >-1 )
+
+                for (int i = 0; i < StringTFirstKey.Length; i++)
                 {
-                    _db.excuteMsgToDB(int.Parse(DeviceID), data);
+                    if (data.IndexOf(StringTFirstKey[i]) > -1)
+                    {
+                        _db.excuteMsgToDB(int.Parse(DeviceID), data);
+                        break;
+                    }
                 }
+
             }
-            
+
 
             // Send Back
             switch (TypeDevices(data))
             {
                 case "UP":
-                    if(Adta.Length>5)
+                    if (Adta.Length > 5)
                     {
-                       
+
 
                         sendString = Adta[0] + "," + Adta[1] + "," + Adta[2] + "," + Adta[4] + "," + Adta[5] + "#";
                         socket.SendTo(Encoding.ASCII.GetBytes(sendString), ep);
@@ -136,9 +143,9 @@ namespace UDP_Server
                 case "ML":
                     if (Adta.Length > 7)
                     {
-                      
 
-                        sendString = Adta[0] +","+ Adta[1] + "," + Adta[2] + "," + Adta[6] + "," + Adta[7] + "#";
+
+                        sendString = Adta[0] + "," + Adta[1] + "," + Adta[2] + "," + Adta[6] + "," + Adta[7] + "#";
                         socket.SendTo(Encoding.ASCII.GetBytes(sendString), ep);
                         PrintWithColorGreen("Send:" + sendString);
                         PrintWithColorSilver("-----------------------------------------------------------");
@@ -148,7 +155,7 @@ namespace UDP_Server
                 case "ST":
                     if (Adta.Length > 8)
                     {
-                       
+
 
                         sendString = Adta[0] + "," + Adta[1] + "," + Adta[2] + "," + Adta[8] + "," + Adta[8] + "#";
                         socket.SendTo(Encoding.ASCII.GetBytes(sendString), ep);
@@ -157,7 +164,7 @@ namespace UDP_Server
                         Utilities.WriteLog("Send:" + sendString);
                     }
                     break;
-            } 
+            }
         }
         #region Color
 
