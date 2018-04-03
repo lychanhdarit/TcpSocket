@@ -137,7 +137,7 @@ namespace UDP_Server
                         socket.SendTo(Encoding.ASCII.GetBytes(sendString), ep);
                         PrintWithColorGreen("Send:" + sendString);
                         PrintWithColorSilver("-----------------------------------------------------------");
-                        Utilities.WriteLog("Send:" + sendString);
+                        //Utilities.WriteLog("Send:" + sendString);
                     }
                     break;
                 case "ML":
@@ -149,7 +149,7 @@ namespace UDP_Server
                         socket.SendTo(Encoding.ASCII.GetBytes(sendString), ep);
                         PrintWithColorGreen("Send:" + sendString);
                         PrintWithColorSilver("-----------------------------------------------------------");
-                        Utilities.WriteLog("Send:" + sendString);
+                        //Utilities.WriteLog("Send:" + sendString);
                     }
                     break;
                 case "ST":
@@ -161,7 +161,7 @@ namespace UDP_Server
                         socket.SendTo(Encoding.ASCII.GetBytes(sendString), ep);
                         PrintWithColorGreen("Send:" + sendString);
                         PrintWithColorSilver("-----------------------------------------------------------");
-                        Utilities.WriteLog("Send:" + sendString);
+                        //Utilities.WriteLog("Send:" + sendString);
                     }
                     break;
             }

@@ -45,14 +45,14 @@ namespace UDP_Server
 
                 con.Close();
                  Console.WriteLine("Execute DB: " + data + " DeviceId: " + Device_ID);
-                Utilities.WriteLog("Execute DB: " + data + " DeviceId: " + Device_ID);
+               // Utilities.WriteLog("Execute DB: " + data + " DeviceId: " + Device_ID);
             }
 
             catch (OracleException e)
             {
                 getConn().Close();
                 Console.WriteLine(e.ToString());
-                Utilities.WriteLog(e.ToString());
+                //Utilities.WriteLog(e.ToString());
             }
         }
 
