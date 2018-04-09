@@ -119,16 +119,17 @@ namespace UDPMultiClient
                     
                     clientList.Add(clientInfo);
                     PrintWithColorGreen("<<<" + clientInfo.endpoint.ToString() + " has joined>>>");
+                    Utilities.WriteLog("<<<" + clientInfo.endpoint.ToString() + " has joined>>>");
                     PrintWithColorSilver("-----------------------------------------------------------");
                     PrintWithColor("Revc " + DateTime.Now.ToString() + " : " + msgReceived.strMessage);
-
+                    Utilities.WriteLog(msgReceived.strMessage);
                     SendSocketData(msgReceived.strMessage, serverSocket, clientInfo.endpoint);
                 }
                 else
                 {
                     PrintWithColorSilver("-----------------------------------------------------------");
                     PrintWithColor("Revc " + DateTime.Now.ToString() + " : " + msgReceived.strMessage);
-                    
+                    Utilities.WriteLog(msgReceived.strMessage);
                     SendSocketData(msgReceived.strMessage, serverSocket, clientInfo.endpoint);
                 }
 

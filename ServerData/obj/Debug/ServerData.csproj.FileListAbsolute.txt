@@ -23,3 +23,4 @@ C:\DEVELOPER\FINAL SOCKET\TcpSocket\ServerData\bin\Debug\ServerData.dll.config
 C:\DEVELOPER\FINAL SOCKET\TcpSocket\ServerData\bin\Debug\ServerData.dll
 C:\DEVELOPER\FINAL SOCKET\TcpSocket\ServerData\bin\Debug\ServerData.pdb
 C:\DEVELOPER\FINAL SOCKET\TcpSocket\ServerData\bin\Debug\Oracle.ManagedDataAccess.dll
+C:\DEVELOPER\FINAL SOCKET\TcpSocket\ServerData\obj\Debug\ServerData.csprojResolveAssemblyReference.cache
