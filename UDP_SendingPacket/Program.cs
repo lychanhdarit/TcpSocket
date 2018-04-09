@@ -16,14 +16,21 @@ namespace UDP_SendingPacket
             byte[] packetData = ASCIIEncoding.ASCII.GetBytes("<The Packet Here>");
 
             //Port and Ip Data for Socket Client
-            string IpAdress = "192.168.2.124";
-            int port = 904;
+            string IpAdress = "192.168.2.123";
+            int port = 9100;
             IPEndPoint ep = new IPEndPoint(IPAddress.Parse(IpAdress), port);
             Socket client = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
 
             //client.send
             //client.SendTimeout(1);
-            client.SendTo(packetData,ep);
+            while(true)
+            {
+                Console.Write("Nhap: ");
+                string data = Console.ReadLine();
+                packetData = ASCIIEncoding.ASCII.GetBytes(data);
+                client.SendTo(packetData, ep);
+            }
+            
         }
     }
 }
