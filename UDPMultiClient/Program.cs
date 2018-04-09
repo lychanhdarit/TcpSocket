@@ -39,7 +39,7 @@ namespace UDPMultiClient
         static string PORT = ConfigurationManager.AppSettings["Port"].ToString();
         static string IP_CORE_ADDRESS = ConfigurationManager.AppSettings["IPAddress"].ToString();
 
-        
+
 
         static void Main(string[] args)
         {
@@ -56,8 +56,10 @@ namespace UDPMultiClient
                 IPEndPoint ipEndPoint = new IPEndPoint(IPAddress.Parse(IP_CORE_ADDRESS), int.Parse(PORT));
                 //Bind this address to the server
                 serverSocket.Bind(ipEndPoint);
+                PrintWithColorGreen("-----------------------------------------------------------");
                 PrintWithColorGreen(IP_CORE_ADDRESS + ": Wating for a client connect...");
-
+                PrintWithColorGreen("-----------------------------------------------------------");
+                //new IPEndPoint(IPAddress.Parse(IP_CORE_ADDRESS), int.Parse(PORT));
                 IPEndPoint ipeSender = new IPEndPoint(IPAddress.Any, 0);
                 //The epSender identifies the incoming clients
                 EndPoint epSender = (EndPoint)ipeSender;
@@ -70,7 +72,7 @@ namespace UDPMultiClient
             }
             catch (Exception ex)
             {
-                PrintWithColorRed(ex.Message);
+                PrintWithColorRed("Loi 1: " + ex.Message);
             }
         }
 
@@ -98,44 +100,52 @@ namespace UDPMultiClient
                 msgToSend.strName = msgReceived.strName;
                 message = msgToSend.ToByte();
 
-              
+
 
                 ClientInfo clientInfo = new ClientInfo();
                 clientInfo.endpoint = epSender;
-               
+
                 int clientExist = 0;
-                foreach(ClientInfo cl in clientList)
+                foreach (ClientInfo cl in clientList)
                 {
-                    if (clientInfo.endpoint.ToString()  == cl.endpoint.ToString())
+                    if (clientInfo.endpoint.ToString() == cl.endpoint.ToString())
                     {
                         clientExist = 1;
                         break;
                     }
                 }
-                if(clientExist == 0)
+                if (clientExist == 0)
                 {
-                
+                    
+                    clientList.Add(clientInfo);
                     PrintWithColorGreen("<<<" + clientInfo.endpoint.ToString() + " has joined>>>");
-                    PrintWithColor("Revc "+DateTime.Now.ToString()+" : " + msgReceived.strMessage);
+                    PrintWithColorSilver("-----------------------------------------------------------");
+                    PrintWithColor("Revc " + DateTime.Now.ToString() + " : " + msgReceived.strMessage);
 
                     SendSocketData(msgReceived.strMessage, serverSocket, clientInfo.endpoint);
-                    clientList.Add(clientInfo);
                 }
                 else
                 {
-                    PrintWithColor("Revc " + DateTime.Now.ToString() + " : " + msgReceived.strMessage );
+                    PrintWithColorSilver("-----------------------------------------------------------");
+                    PrintWithColor("Revc " + DateTime.Now.ToString() + " : " + msgReceived.strMessage);
+                    
                     SendSocketData(msgReceived.strMessage, serverSocket, clientInfo.endpoint);
                 }
-               
-                //Set the text of the message that we will broadcast to all users
-
 
                
+                //If the user is logging out then we need not listen from her
+                if (msgReceived.cmdCommand != Command.Logout)
+                {
+                    //Start listening to the message send by the user
+                    serverSocket.BeginReceiveFrom(byteData, 0, byteData.Length, SocketFlags.None, ref epSender,
+                        new AsyncCallback(OnReceive), epSender);
+                }
+
             }
             catch (Exception ex)
             {
-                PrintWithColorRed(ex.Message);
-                
+                PrintWithColorRed("Loi 2: " + ex.Message);
+
             }
         }
 
@@ -291,27 +301,27 @@ namespace UDPMultiClient
         public Data(byte[] data)
         {
             //The first four bytes are for the Command
-            this.cmdCommand = (Command)BitConverter.ToInt32(data, 0);
+            //this.cmdCommand = (Command)BitConverter.ToInt32(data, 0);
 
-            //The next four store the length of the name
-            int nameLen = BitConverter.ToInt32(data, 4);
+            ////The next four store the length of the name
+            //int nameLen = BitConverter.ToInt32(data, 4);
 
-            //The next four store the length of the message
-            int msgLen = BitConverter.ToInt32(data, 8);
+            ////The next four store the length of the message
+            //int msgLen = BitConverter.ToInt32(data, 8);
 
-            //This check makes sure that strName has been passed in the array of bytes
-            if (nameLen > 0)
-                this.strName = Encoding.UTF8.GetString(data, 12, nameLen);
-            else
-                this.strName = null;
+            ////This check makes sure that strName has been passed in the array of bytes
+            //if (nameLen > 0)
+            //    this.strName = Encoding.UTF8.GetString(data, 12, nameLen);
+            //else
+            //    this.strName = null;
 
             //This checks for a null message field
-            if (msgLen > 0)
-                this.strMessage = Encoding.UTF8.GetString(data, 12 + nameLen, msgLen);
-            else
-                this.strMessage = null;
+            //if (msgLen > 0)
+            //    this.strMessage = Encoding.UTF8.GetString(data, 12 + nameLen, msgLen);
+            //else
+            //    this.strMessage = null;
 
-            //
+
             var byteArray = data.TakeWhile((v, index) => data.Skip(index).Any(w => w != 0x00)).ToArray();
             strMessage = Encoding.ASCII.GetString(byteArray, 0, byteArray.Length);
         }
