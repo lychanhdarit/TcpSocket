@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UDP_SendingPacket", "UDP_Se
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UDPMultiClient", "UDPMultiClient\UDPMultiClient.csproj", "{A9E257B9-7F1B-42C4-9367-B2D697358438}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UDPThread", "UDPThread\UDPThread.csproj", "{78ECACB1-3542-4336-B9B6-1096DE6C3C16}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitMQ", "RabbitMQ\RabbitMQ.csproj", "{2BDAB01E-D6C4-4FE1-BFB2-4F841B412F60}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +49,14 @@ Global
 		{A9E257B9-7F1B-42C4-9367-B2D697358438}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9E257B9-7F1B-42C4-9367-B2D697358438}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9E257B9-7F1B-42C4-9367-B2D697358438}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78ECACB1-3542-4336-B9B6-1096DE6C3C16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78ECACB1-3542-4336-B9B6-1096DE6C3C16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78ECACB1-3542-4336-B9B6-1096DE6C3C16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78ECACB1-3542-4336-B9B6-1096DE6C3C16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BDAB01E-D6C4-4FE1-BFB2-4F841B412F60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BDAB01E-D6C4-4FE1-BFB2-4F841B412F60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BDAB01E-D6C4-4FE1-BFB2-4F841B412F60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BDAB01E-D6C4-4FE1-BFB2-4F841B412F60}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -80,11 +80,26 @@ namespace UDPMultiClient
         {
             try
             {
+
+                //SocketError errorCode;
+                //int nBytesRec = serverSocket.EndReceive(ar, out errorCode);
+                //if (errorCode != SocketError.Success)
+                //{
+                //    nBytesRec = 0;
+                //}
+
+
                 IPEndPoint ipeSender = new IPEndPoint(IPAddress.Any, 0);
                 EndPoint epSender = (EndPoint)ipeSender;
+                //if(serverSocket.Connected)
+                //{
 
+
+                //}
                 serverSocket.EndReceiveFrom(ar, ref epSender);
 
+
+               
                 //Transform the array of bytes received from the user into an
                 //intelligent form of object Data
                 Data msgReceived = new Data(byteData);
@@ -143,9 +158,28 @@ namespace UDPMultiClient
                 }
 
             }
-            catch (Exception ex)
+            catch (SocketException socketException)
             {
-                PrintWithColorRed("Loi 2: " + ex.Message);
+                //WSAECONNRESET, the other side closed impolitely 
+                //if (socketException.ErrorCode == 10054 ||
+                //   ((socketException.ErrorCode != 10004) &&
+                //   (socketException.ErrorCode != 10053)))
+                //{
+                //    // Complete the disconnect request.
+                //    String remoteIP =
+                //      ((IPEndPoint)serverSocket.RemoteEndPoint).Address.ToString();
+                //    String remotePort =
+                //      ((IPEndPoint)serverSocket.RemoteEndPoint).Port.ToString();
+                //    //this.owner.DisconnectClient(remoteIP, remotePort);
+                //    serverSocket.Close();
+                //    serverSocket = null;
+                //}
+                PrintWithColorRed("Error Socket: " + socketException.Message);
+            }
+            catch (Exception e) 
+            {
+              
+                PrintWithColorRed("Error 2: " + e.Message);
 
             }
         }
