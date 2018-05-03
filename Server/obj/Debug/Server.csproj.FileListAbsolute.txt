@@ -1,38 +1,3 @@
-C:\DEVELOPER\Socket\Server\bin\Debug\Server.exe.config
-C:\DEVELOPER\Socket\Server\bin\Debug\Server.exe
-C:\DEVELOPER\Socket\Server\bin\Debug\Server.pdb
-C:\DEVELOPER\Socket\Server\bin\Debug\ServerData.dll
-C:\DEVELOPER\Socket\Server\bin\Debug\ServerData.pdb
-C:\DEVELOPER\Socket\Server\obj\Debug\Server.csprojResolveAssemblyReference.cache
-C:\DEVELOPER\Socket\Server\obj\Debug\Server.exe
-C:\DEVELOPER\Socket\Server\obj\Debug\Server.pdb
-D:\2018\TcpSocket\Server\bin\Debug\Server.exe.config
-D:\2018\TcpSocket\Server\bin\Debug\Server.exe
-D:\2018\TcpSocket\Server\bin\Debug\Server.pdb
-D:\2018\TcpSocket\Server\bin\Debug\ServerData.dll
-D:\2018\TcpSocket\Server\bin\Debug\ServerData.pdb
-D:\2018\TcpSocket\Server\obj\Debug\Server.csprojResolveAssemblyReference.cache
-D:\2018\TcpSocket\Server\obj\Debug\Server.exe
-D:\2018\TcpSocket\Server\obj\Debug\Server.pdb
-C:\DEVELOPER\TcpSocket\Server\bin\Debug\Server.exe.config
-C:\DEVELOPER\TcpSocket\Server\bin\Debug\Server.exe
-C:\DEVELOPER\TcpSocket\Server\bin\Debug\Server.pdb
-C:\DEVELOPER\TcpSocket\Server\bin\Debug\ServerData.dll
-C:\DEVELOPER\TcpSocket\Server\bin\Debug\Oracle.DataAccess.dll
-C:\DEVELOPER\TcpSocket\Server\bin\Debug\ServerData.pdb
-C:\DEVELOPER\TcpSocket\Server\obj\Debug\Server.csprojResolveAssemblyReference.cache
-C:\DEVELOPER\TcpSocket\Server\obj\Debug\Server.exe
-C:\DEVELOPER\TcpSocket\Server\obj\Debug\Server.pdb
-C:\DEVELOPER\FINAL SOCKET\TcpSocket\Server\obj\Debug\Server.csprojResolveAssemblyReference.cache
-C:\DEVELOPER\FINAL SOCKET\TcpSocket\Server\obj\Debug\Server.exe
-C:\DEVELOPER\FINAL SOCKET\TcpSocket\Server\obj\Debug\Server.pdb
-C:\DEVELOPER\FINAL SOCKET\TcpSocket\Server\bin\Debug\Server.exe.config
-C:\DEVELOPER\FINAL SOCKET\TcpSocket\Server\bin\Debug\Server.exe
-C:\DEVELOPER\FINAL SOCKET\TcpSocket\Server\bin\Debug\Server.pdb
-C:\DEVELOPER\FINAL SOCKET\TcpSocket\Server\bin\Debug\Oracle.ManagedDataAccess.dll
-C:\DEVELOPER\FINAL SOCKET\TcpSocket\Server\bin\Debug\ServerData.dll
-C:\DEVELOPER\FINAL SOCKET\TcpSocket\Server\bin\Debug\ServerData.pdb
-<<<<<<< HEAD
 C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\Server\bin\Debug\Server.exe.config
 C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\Server\bin\Debug\Server.exe
 C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\Server\bin\Debug\Server.pdb
@@ -42,6 +7,3 @@ C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\Server\bin\Debug\ServerData.pdb
 C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\Server\obj\Debug\Server.csprojResolveAssemblyReference.cache
 C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\Server\obj\Debug\Server.exe
 C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\Server\obj\Debug\Server.pdb
-=======
-D:\2018\TcpSocket\Server\bin\Debug\Oracle.ManagedDataAccess.dll
->>>>>>> adc34a5bddd3cfc25c9c29ab8e59b1b0e7d6bd12

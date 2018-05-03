@@ -9,3 +9,9 @@ C:\DEVELOPER\FINAL SOCKET\TcpSocket\UDP_SendingPacket\bin\Debug\UDP_SendingPacke
 C:\DEVELOPER\FINAL SOCKET\TcpSocket\UDP_SendingPacket\bin\Debug\UDP_SendingPacket.pdb
 C:\DEVELOPER\FINAL SOCKET\TcpSocket\UDP_SendingPacket\obj\Debug\UDP_SendingPacket.exe
 C:\DEVELOPER\FINAL SOCKET\TcpSocket\UDP_SendingPacket\obj\Debug\UDP_SendingPacket.pdb
+C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\UDP_SendingPacket\bin\Debug\UDP_SendingPacket.exe.config
+C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\UDP_SendingPacket\bin\Debug\UDP_SendingPacket.exe
+C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\UDP_SendingPacket\bin\Debug\UDP_SendingPacket.pdb
+C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\UDP_SendingPacket\obj\Debug\UDP_SendingPacket.csprojResolveAssemblyReference.cache
+C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\UDP_SendingPacket\obj\Debug\UDP_SendingPacket.exe
+C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\UDP_SendingPacket\obj\Debug\UDP_SendingPacket.pdb

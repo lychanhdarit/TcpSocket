@@ -58,7 +58,7 @@ namespace UDPThread
 
                 while (true)
                 {
-                    Byte[] received = new Byte[256];
+                    Byte[] received = new Byte[65507];
 
                     IPEndPoint tmpIpEndPoint = new IPEndPoint(IPAddress.Parse(IP_CORE_ADDRESS), int.Parse(PORT));
                     //IPEndPoint tmpIpEndPoint = new IPEndPoint(A, int.Parse(PORT));
@@ -81,6 +81,12 @@ namespace UDPThread
             catch (SocketException se)
             {
                 PrintWithColorRed("A Socket Exception has occurred!" + se.ToString());
+                Utilities.WriteLog("A Socket Exception has occurred!" + se.ToString());
+            }
+            catch (Exception se)
+            {
+                PrintWithColorRed("A Socket Exception has occurred!" + se.ToString());
+                Utilities.WriteLog(se.ToString());
             }
 
         }

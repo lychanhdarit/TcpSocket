@@ -25,3 +25,12 @@ C:\DEVELOPER\FINAL SOCKET\TcpSocket\UDP_Server\bin\Debug\ServerData.pdb
 C:\DEVELOPER\FINAL SOCKET\TcpSocket\UDP_Server\obj\Debug\UDP_Server.csprojResolveAssemblyReference.cache
 C:\DEVELOPER\FINAL SOCKET\TcpSocket\UDP_Server\obj\Debug\UDP_Server.exe
 C:\DEVELOPER\FINAL SOCKET\TcpSocket\UDP_Server\obj\Debug\UDP_Server.pdb
+C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\UDP_Server\bin\Debug\UDP_Server.exe.config
+C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\UDP_Server\bin\Debug\UDP_Server.exe
+C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\UDP_Server\bin\Debug\UDP_Server.pdb
+C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\UDP_Server\bin\Debug\Oracle.ManagedDataAccess.dll
+C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\UDP_Server\bin\Debug\ServerData.dll
+C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\UDP_Server\bin\Debug\ServerData.pdb
+C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\UDP_Server\obj\Debug\UDP_Server.csprojResolveAssemblyReference.cache
+C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\UDP_Server\obj\Debug\UDP_Server.exe
+C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\UDP_Server\obj\Debug\UDP_Server.pdb
