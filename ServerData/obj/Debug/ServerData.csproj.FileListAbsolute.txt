@@ -14,15 +14,19 @@ C:\DEVELOPER\TcpSocket\ServerData\bin\Debug\Oracle.DataAccess.dll
 C:\DEVELOPER\TcpSocket\ServerData\obj\Debug\ServerData.dll
 C:\DEVELOPER\TcpSocket\ServerData\obj\Debug\ServerData.pdb
 D:\2018\TcpSocket\ServerData\bin\Debug\ServerData.dll.config
-D:\2018\TcpSocket\ServerData\bin\Debug\Oracle.DataAccess.dll
 C:\DEVELOPER\TcpSocket\ServerData\obj\Debug\ServerData.csprojResolveAssemblyReference.cache
+<<<<<<< HEAD
 D:\2018\TcpSocket\ServerData\obj\Debug\ServerData.csprojResolveAssemblyReference.cache
+=======
+C:\DEVELOPER\FINAL SOCKET\TcpSocket\ServerData\obj\Debug\ServerData.csprojResolveAssemblyReference.cache
+>>>>>>> adc34a5bddd3cfc25c9c29ab8e59b1b0e7d6bd12
 C:\DEVELOPER\FINAL SOCKET\TcpSocket\ServerData\obj\Debug\ServerData.dll
 C:\DEVELOPER\FINAL SOCKET\TcpSocket\ServerData\obj\Debug\ServerData.pdb
 C:\DEVELOPER\FINAL SOCKET\TcpSocket\ServerData\bin\Debug\ServerData.dll.config
 C:\DEVELOPER\FINAL SOCKET\TcpSocket\ServerData\bin\Debug\ServerData.dll
 C:\DEVELOPER\FINAL SOCKET\TcpSocket\ServerData\bin\Debug\ServerData.pdb
 C:\DEVELOPER\FINAL SOCKET\TcpSocket\ServerData\bin\Debug\Oracle.ManagedDataAccess.dll
+<<<<<<< HEAD
 C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\ServerData\bin\Debug\ServerData.dll.config
 C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\ServerData\bin\Debug\ServerData.dll
 C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\ServerData\bin\Debug\ServerData.pdb
@@ -30,3 +34,6 @@ C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\ServerData\bin\Debug\Oracle.ManagedDa
 C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\ServerData\obj\Debug\ServerData.dll
 C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\ServerData\obj\Debug\ServerData.pdb
 C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\ServerData\obj\Debug\ServerData.csprojResolveAssemblyReference.cache
+=======
+D:\2018\TcpSocket\ServerData\bin\Debug\Oracle.ManagedDataAccess.dll
+>>>>>>> adc34a5bddd3cfc25c9c29ab8e59b1b0e7d6bd12
