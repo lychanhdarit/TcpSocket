@@ -78,7 +78,7 @@ namespace Server
                         PrintWithColorSilver("---------------------------");
                         Utilities.WriteLog(msg);
 
-                        //_db.excuteMsgToDB(int.Parse(DeviceID), msg);
+                        _db.excuteMsgToDB(int.Parse(DeviceID), msg);
 
 
                         ////DataManager(packet);

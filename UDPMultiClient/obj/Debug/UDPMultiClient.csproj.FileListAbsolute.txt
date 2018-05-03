@@ -7,3 +7,12 @@ C:\DEVELOPER\FINAL SOCKET\TcpSocket\UDPMultiClient\obj\Debug\UDPMultiClient.pdb
 C:\DEVELOPER\FINAL SOCKET\TcpSocket\UDPMultiClient\bin\Debug\Oracle.ManagedDataAccess.dll
 C:\DEVELOPER\FINAL SOCKET\TcpSocket\UDPMultiClient\bin\Debug\ServerData.dll
 C:\DEVELOPER\FINAL SOCKET\TcpSocket\UDPMultiClient\bin\Debug\ServerData.pdb
+C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\UDPMultiClient\bin\Debug\UDPMultiClient.exe.config
+C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\UDPMultiClient\bin\Debug\UDPMultiClient.exe
+C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\UDPMultiClient\bin\Debug\UDPMultiClient.pdb
+C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\UDPMultiClient\bin\Debug\Oracle.ManagedDataAccess.dll
+C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\UDPMultiClient\bin\Debug\ServerData.dll
+C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\UDPMultiClient\bin\Debug\ServerData.pdb
+C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\UDPMultiClient\obj\Debug\UDPMultiClient.csprojResolveAssemblyReference.cache
+C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\UDPMultiClient\obj\Debug\UDPMultiClient.exe
+C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\UDPMultiClient\obj\Debug\UDPMultiClient.pdb

@@ -34,13 +34,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="protobuf-net">
-      <HintPath>..\..\..\src\lib\protobuf-net.dll</HintPath>
+      <HintPath>..\..\..\lib\protobuf-net.dll</HintPath>
     </Reference>
     <Reference Include="RabbitMQ.Client">
-      <HintPath>..\..\..\src\lib\RabbitMQ.Client.dll</HintPath>
+      <HintPath>..\..\..\lib\RabbitMQ.Client.dll</HintPath>
     </Reference>
     <Reference Include="RabbitMQ.ServiceModel">
-      <HintPath>..\..\..\src\lib\RabbitMQ.ServiceModel.dll</HintPath>
+      <HintPath>..\..\..\lib\RabbitMQ.ServiceModel.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -58,6 +58,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Document.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

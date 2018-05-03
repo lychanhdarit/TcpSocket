@@ -13,7 +13,16 @@ namespace RabbitMQ
     {
         static void Main(string[] args)
         {
-
+            while(true)
+            {
+                Console.Write("\n Input: ");
+               
+                string input = Console.ReadLine();
+                if(input == "run")
+                {
+                    ProcessMQ();
+                }
+            }
         }
         public static void CheckBP()
         {
@@ -124,12 +133,12 @@ namespace RabbitMQ
         {
             // connection
             ConnectionFactory factory = new ConnectionFactory();
-            factory.UserName = "username";
-            factory.Password = "password";
+            factory.UserName = "atg";
+            factory.Password = "VZxp85_RZ";
             factory.VirtualHost = "/";
             factory.Protocol = Protocols.FromEnvironment();
-            factory.HostName = "210.211.102.123";
-            factory.Port = 5672;
+            factory.HostName = "27.118.27.118";
+            factory.Port = 5674;
             IConnection conn = factory.CreateConnection();
 
             // The IConnection interface can then be used to open a channel:
@@ -156,8 +165,8 @@ namespace RabbitMQ
 
 
             byte[] b = Serialize(msg);
-            channel.BasicPublish("ufms.all", "", null, b);
-
+            //channel.BasicPublish("ufms.all", "", null, b);
+            channel.BasicPublish("tracking.atg", "track1", null, b);
             //
             channel.Close();
             conn.Close();

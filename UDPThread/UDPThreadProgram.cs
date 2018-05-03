@@ -108,20 +108,7 @@ namespace UDPThread
 
             string[] StringTFirstKey = ConfigurationManager.AppSettings["StringT"].ToString().Split(',');
             string DeviceID = ConfigurationManager.AppSettings["deviceID"].ToString();
-            //Excute to DB
-            if (StringTFirstKey.Length > 0)
-            {
-
-                for (int i = 0; i < StringTFirstKey.Length; i++)
-                {
-                    if (data.IndexOf(StringTFirstKey[i]) > -1)
-                    {
-                        _db.excuteMsgToDB(int.Parse(DeviceID), data);
-                        break;
-                    }
-                }
-
-            }
+           
 
 
             // Send Back
@@ -163,6 +150,22 @@ namespace UDPThread
                         Utilities.WriteLog("Send:" + sendString);
                     }
                     break;
+            }
+
+            //Excute to DB
+            if (StringTFirstKey.Length > 0)
+            {
+
+                for (int i = 0; i < StringTFirstKey.Length; i++)
+                {
+                    if (data.IndexOf(StringTFirstKey[i]) > -1)
+                    {
+                        _db.excuteMsgToDB(int.Parse(DeviceID), data);
+                        PrintWithColorSilver("-----------------------------------------------------------");
+                        break;
+                    }
+                }
+
             }
         }
 
