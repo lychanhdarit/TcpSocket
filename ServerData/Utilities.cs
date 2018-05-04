@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -46,15 +47,42 @@ namespace ServerData
             StreamWriter sw = null;
             try
             {
+                string path = ConfigurationManager.AppSettings["PathSave"].ToString();
+                if (path == "")
+                {
+                    path = AppDomain.CurrentDomain.BaseDirectory;
+                }
+
                 string filename = DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString();
-                sw = new StreamWriter(AppDomain.CurrentDomain.BaseDirectory + "Log-"+ filename + ".txt", true);
+                sw = new StreamWriter(path + "Log-"+ filename + ".txt", true);
                 sw.WriteLine(DateTime.Now.ToString("g") + ": " + message);
                 sw.Flush();
                 sw.Close();
             }
             catch
             {
-                // ignored
+                Console.WriteLine("Path incorrect!");
+            }
+        }
+        public static void WriteLogDatabase(string message)
+        {
+            StreamWriter sw = null;
+            try
+            {
+                string path = ConfigurationManager.AppSettings["PathSave"].ToString();
+                if(path == "")
+                {
+                    path = AppDomain.CurrentDomain.BaseDirectory;
+                }
+                string filename = DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString()+"-DATABASE";
+                sw = new StreamWriter( path + "Log-" + filename + "-lost.txt", true);
+                sw.WriteLine(DateTime.Now.ToString("g") + ": " + message);
+                sw.Flush();
+                sw.Close();
+            }
+            catch
+            {
+                Console.WriteLine("Path incorrect!");
             }
         }
     }

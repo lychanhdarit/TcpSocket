@@ -51,7 +51,8 @@ namespace Server
             {
                 getConn().Close();
                 Console.WriteLine(e.ToString());
-                //Utilities.WriteLog(e.ToString());
+                Utilities.WriteLogDatabase("Data: "+data+" DeviceID: "+Device_ID);
+                Utilities.WriteLogDatabase(e.ToString());
             }
         }
 

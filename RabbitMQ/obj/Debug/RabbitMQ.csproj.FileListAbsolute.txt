@@ -1,0 +1,12 @@
+C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\RabbitMQ\bin\Debug\RabbitMQ.exe.config
+C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\RabbitMQ\bin\Debug\RabbitMQ.exe
+C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\RabbitMQ\bin\Debug\RabbitMQ.pdb
+C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\RabbitMQ\bin\Debug\protobuf-net.dll
+C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\RabbitMQ\bin\Debug\RabbitMQ.Client.dll
+C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\RabbitMQ\bin\Debug\RabbitMQ.ServiceModel.dll
+C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\RabbitMQ\bin\Debug\protobuf-net.pdb
+C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\RabbitMQ\bin\Debug\protobuf-net.xml
+C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\RabbitMQ\bin\Debug\RabbitMQ.Client.xml
+C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\RabbitMQ\obj\Debug\RabbitMQ.csprojResolveAssemblyReference.cache
+C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\RabbitMQ\obj\Debug\RabbitMQ.exe
+C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\RabbitMQ\obj\Debug\RabbitMQ.pdb

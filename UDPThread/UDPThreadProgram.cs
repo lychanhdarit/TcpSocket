@@ -35,6 +35,7 @@ namespace UDPThread
             catch (Exception e)
             {
                 PrintWithColorRed("An UDP Exception has occurred!" + e.ToString());
+                Utilities.WriteLog(e.ToString());
                 sampleUdpThread.Abort();
             }
         }
@@ -55,7 +56,7 @@ namespace UDPThread
                 IPEndPoint localIpEndPoint = new IPEndPoint(IPAddress.Parse(IP_CORE_ADDRESS), int.Parse(PORT));
 
                 soUdp.Bind(localIpEndPoint);
-
+                string DeCODE = ConfigurationManager.AppSettings["DeCODE"].ToString();
                 while (true)
                 {
                     Byte[] received = new Byte[65507];
@@ -69,9 +70,18 @@ namespace UDPThread
 
                     String dataReceived = System.Text.Encoding.ASCII.GetString(received);
 
-                    var byteArray = received.TakeWhile((v, index) => received.Skip(index).Any(w => w != 0x00)).ToArray();
-                    dataReceived = Encoding.ASCII.GetString(byteArray, 0, byteArray.Length);
-
+                   
+                    if (DeCODE == "1")
+                    {
+                        dataReceived = GetHexStringFrom(received);
+                    }
+                    else
+                    {
+                        var byteArray = received.TakeWhile((v, index) => received.Skip(index).Any(w => w != 0x00)).ToArray();
+                        dataReceived = Encoding.ASCII.GetString(byteArray, 0, byteArray.Length);
+                       
+                    }
+                    
                     PrintWithColor("Revc "+DateTime.Now.ToString() + " from " + remoteEP.ToString()+ ": " + dataReceived);
                     Utilities.WriteLog("Revc from " + remoteEP.ToString() + ": " + dataReceived);
                     SendSocketData(dataReceived, soUdp, remoteEP);
@@ -105,6 +115,11 @@ namespace UDPThread
                 return "ST";
             }
             return "";
+        }
+        public static string GetHexStringFrom(byte[] data)
+        {
+            byte[] byteArray = data.TakeWhile((v, index) => data.Skip(index).Any(w => w != 0x00)).ToArray();
+            return BitConverter.ToString(byteArray).Replace("-", string.Empty); //To convert the whole array
         }
         static void SendSocketData(string data, Socket socket, EndPoint ep)
         {

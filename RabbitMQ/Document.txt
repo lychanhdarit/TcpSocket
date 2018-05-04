@@ -1,0 +1,14 @@
+﻿IP: 27.118.27.118
+
+Port: 5674
+
+Username: atg
+
+Pass: VZxp85_RZ
+
+Exchange: tracking.atg
+
+routing key: track1
+
+Câu lệnh gửi dữ liệu trong sample: channel.BasicPublish("ufms.all", "", null, b); thì anh/chị chuyển thành channel.BasicPublish("tracking.atg", "track1", null, b);
+Sau khi truyền dữ liệu xong, để xem thông tin về báo cáo truyền dữ liệu, các anh chị dùng tài khoản đã được cấp để truy cập địa chỉ: http://gsht.drvn.gov.vn
