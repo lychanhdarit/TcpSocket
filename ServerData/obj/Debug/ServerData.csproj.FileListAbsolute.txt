@@ -3,6 +3,5 @@ C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\ServerData\bin\Debug\ServerData.dll
 C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\ServerData\bin\Debug\ServerData.pdb
 C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\ServerData\bin\Debug\Microsoft.ApplicationBlocks.Data.dll
 C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\ServerData\bin\Debug\Oracle.ManagedDataAccess.dll
-C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\ServerData\obj\Debug\ServerData.csprojResolveAssemblyReference.cache
 C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\ServerData\obj\Debug\ServerData.dll
 C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\ServerData\obj\Debug\ServerData.pdb
