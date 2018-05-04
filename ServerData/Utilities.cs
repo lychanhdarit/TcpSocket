@@ -61,9 +61,51 @@ namespace ServerData
             }
             catch
             {
-                Console.WriteLine("Path incorrect!");
+                PrintWithColorRed("Error: Invalid path!");
+                
             }
         }
+
+        #region Color
+
+
+        static void PrintWithColor(string data)
+        {
+            //CyAn = 11
+            ConsoleColor c = Console.ForegroundColor;
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine(data);
+            Console.ForegroundColor = c;
+        }
+
+        static void PrintWithColorSilver(string data)
+        {
+            //CyAn = 11
+            ConsoleColor c = Console.ForegroundColor;
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.WriteLine(data);
+            Console.ForegroundColor = c;
+        }
+        static void PrintWithColorGreen(string data)
+        {
+            //CyAn = 11
+            ConsoleColor c = Console.ForegroundColor;
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine(data);
+            Console.ForegroundColor = c;
+        }
+        static void PrintWithColorRed(string data)
+        {
+            //CyAn = 11
+            ConsoleColor c = Console.ForegroundColor;
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(data);
+            Console.ForegroundColor = c;
+        }
+
+
+        #endregion
+        //start 
         public static void WriteLogDatabase(string message)
         {
             StreamWriter sw = null;
@@ -82,7 +124,7 @@ namespace ServerData
             }
             catch
             {
-                Console.WriteLine("Path incorrect!");
+                PrintWithColorRed("Error: Invalid path!");
             }
         }
     }
