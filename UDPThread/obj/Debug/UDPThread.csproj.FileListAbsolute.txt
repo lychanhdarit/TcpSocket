@@ -16,3 +16,12 @@ C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\UDPThread\bin\Debug\ServerData.pdb
 C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\UDPThread\obj\Debug\UDPThread.exe
 C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\UDPThread\obj\Debug\UDPThread.pdb
 C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\UDPThread\obj\Debug\UDPThread.csprojResolveAssemblyReference.cache
+H:\Developer\TcpSocket\UDPThread\bin\Debug\UDPThread.exe.config
+H:\Developer\TcpSocket\UDPThread\bin\Debug\UDPThread.exe
+H:\Developer\TcpSocket\UDPThread\bin\Debug\UDPThread.pdb
+H:\Developer\TcpSocket\UDPThread\bin\Debug\Oracle.ManagedDataAccess.dll
+H:\Developer\TcpSocket\UDPThread\bin\Debug\ServerData.dll
+H:\Developer\TcpSocket\UDPThread\bin\Debug\ServerData.pdb
+H:\Developer\TcpSocket\UDPThread\obj\Debug\UDPThread.csprojResolveAssemblyReference.cache
+H:\Developer\TcpSocket\UDPThread\obj\Debug\UDPThread.exe
+H:\Developer\TcpSocket\UDPThread\obj\Debug\UDPThread.pdb

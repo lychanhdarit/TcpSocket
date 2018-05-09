@@ -5,3 +5,10 @@ C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\ServerData\bin\Debug\Microsoft.Applic
 C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\ServerData\bin\Debug\Oracle.ManagedDataAccess.dll
 C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\ServerData\obj\Debug\ServerData.dll
 C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\ServerData\obj\Debug\ServerData.pdb
+H:\Developer\TcpSocket\ServerData\bin\Debug\ServerData.dll.config
+H:\Developer\TcpSocket\ServerData\bin\Debug\ServerData.dll
+H:\Developer\TcpSocket\ServerData\bin\Debug\ServerData.pdb
+H:\Developer\TcpSocket\ServerData\bin\Debug\Oracle.ManagedDataAccess.dll
+H:\Developer\TcpSocket\ServerData\obj\Debug\ServerData.csprojResolveAssemblyReference.cache
+H:\Developer\TcpSocket\ServerData\obj\Debug\ServerData.dll
+H:\Developer\TcpSocket\ServerData\obj\Debug\ServerData.pdb
