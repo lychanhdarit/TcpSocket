@@ -16,7 +16,7 @@ namespace ServerData
             try
             {
                 sw = new StreamWriter(AppDomain.CurrentDomain.BaseDirectory + "LogFile.txt", true);
-                sw.WriteLine(DateTime.Now.ToString("g") + ": " + ex.Source + "; " + ex.Message);
+                sw.WriteLine(DateTime.Now.ToString("dd-MM-yyyy hh:mm:ss tt")  + ": " + ex.Source + "; " + ex.Message);
                 sw.Flush();
                 sw.Close();
 
@@ -32,7 +32,7 @@ namespace ServerData
             try
             {
                 sw = new StreamWriter(AppDomain.CurrentDomain.BaseDirectory + "LogFile.txt", true);
-                sw.WriteLine(DateTime.Now.ToString("g") + ": " + message);
+                sw.WriteLine(DateTime.Now.ToString("dd-MM-yyyy hh:mm:ss tt")  + ": " + message);
                 sw.Flush();
                 sw.Close();
             }
@@ -55,7 +55,7 @@ namespace ServerData
 
                 string filename = DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString();
                 sw = new StreamWriter(path + "Log-"+ filename + ".txt", true);
-                sw.WriteLine(DateTime.Now.ToString("g") + ": " + message);
+                sw.WriteLine(DateTime.Now.ToString("dd-MM-yyyy hh:mm:ss tt") + ": " + message);
                 sw.Flush();
                 sw.Close();
             }
@@ -118,7 +118,7 @@ namespace ServerData
                 }
                 string filename = DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString()+"-DATABASE";
                 sw = new StreamWriter( path + "Log-" + filename + "-lost.txt", true);
-                sw.WriteLine(DateTime.Now.ToString("g") + ": " + message);
+                sw.WriteLine(DateTime.Now.ToString("dd-MM-yyyy hh:mm:ss tt")  + ": " + message);
                 sw.Flush();
                 sw.Close();
             }

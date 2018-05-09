@@ -36,3 +36,6 @@ C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\Clients\bin\Debug\ServerData.pdb
 C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\Clients\obj\Debug\Clients.csprojResolveAssemblyReference.cache
 C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\Clients\obj\Debug\Clients.exe
 C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\Clients\obj\Debug\Clients.pdb
+H:\Developer\TcpSocket\Clients\bin\Debug\Clients.exe.config
+H:\Developer\TcpSocket\Clients\obj\Debug\Clients.exe
+H:\Developer\TcpSocket\Clients\obj\Debug\Clients.pdb

@@ -59,40 +59,50 @@ namespace UDPThread
                 string DeCODE = ConfigurationManager.AppSettings["DeCODE"].ToString();
                 while (true)
                 {
-                    Byte[] received = new Byte[65507];
-
-                    IPEndPoint tmpIpEndPoint = new IPEndPoint(IPAddress.Parse(IP_CORE_ADDRESS), int.Parse(PORT));
-                    //IPEndPoint tmpIpEndPoint = new IPEndPoint(A, int.Parse(PORT));
-
-                    EndPoint remoteEP = (tmpIpEndPoint);
-
-                    int bytesReceived = soUdp.ReceiveFrom(received, ref remoteEP);
-
-                    String dataReceived = System.Text.Encoding.ASCII.GetString(received);
-
-                   
-                    if (DeCODE == "1")
+                    try
                     {
-                        dataReceived = GetHexStringFrom(received);
+                        Byte[] received = new Byte[65507];
+
+                        IPEndPoint tmpIpEndPoint = new IPEndPoint(IPAddress.Parse(IP_CORE_ADDRESS), int.Parse(PORT));
+                        //IPEndPoint tmpIpEndPoint = new IPEndPoint(A, int.Parse(PORT));
+
+                        EndPoint remoteEP = (tmpIpEndPoint);
+
+                        int bytesReceived = soUdp.ReceiveFrom(received, ref remoteEP);
+
+                        String dataReceived = System.Text.Encoding.ASCII.GetString(received);
+
+
+                        if (DeCODE == "1")
+                        {
+                            dataReceived = GetHexStringFrom(received);
+                        }
+                        else
+                        {
+                            var byteArray = received.TakeWhile((v, index) => received.Skip(index).Any(w => w != 0x00)).ToArray();
+                            dataReceived = Encoding.ASCII.GetString(byteArray, 0, byteArray.Length);
+
+                        }
+
+                        PrintWithColor("Revc " + DateTime.Now.ToString() + " from " + remoteEP.ToString() + ": " + dataReceived);
+                        Utilities.WriteLog("Revc from " + remoteEP.ToString() + ": " + dataReceived);
+                        SendSocketData(dataReceived, soUdp, remoteEP);
                     }
-                    else
+                    catch (SocketException se)
                     {
-                        var byteArray = received.TakeWhile((v, index) => received.Skip(index).Any(w => w != 0x00)).ToArray();
-                        dataReceived = Encoding.ASCII.GetString(byteArray, 0, byteArray.Length);
-                       
+                        //SocketError errorCode;
+                        //int nBytesRec = soUdp.EndReceive(received, out errorCode);
+                        //if (errorCode != SocketError.Success)
+                        //{
+                        //    nBytesRec = 0;
+                        //}
+                        PrintWithColorRed("SocketException: " + se.ToString());
+                        Utilities.WriteLog("SocketException: " + se.ToString());
                     }
-                    
-                    PrintWithColor("Revc "+DateTime.Now.ToString() + " from " + remoteEP.ToString()+ ": " + dataReceived);
-                    Utilities.WriteLog("Revc from " + remoteEP.ToString() + ": " + dataReceived);
-                    SendSocketData(dataReceived, soUdp, remoteEP);
                 }
 
             }
-            catch (SocketException se)
-            {
-                PrintWithColorRed("A Socket Exception has occurred!" + se.ToString());
-                Utilities.WriteLog("A Socket Exception has occurred!" + se.ToString());
-            }
+            
             catch (Exception se)
             {
                 PrintWithColorRed("A Socket Exception has occurred!" + se.ToString());
