@@ -64,6 +64,30 @@ namespace ServerData
                 PrintWithColorRed("Error: Invalid path!");
                 
             }
+
+        }
+        public static void WriteLogSocketError(string message)
+        {
+            StreamWriter sw = null;
+            try
+            {
+                string path = ConfigurationManager.AppSettings["PathSave"].ToString();
+                if (path == "")
+                {
+                    path = AppDomain.CurrentDomain.BaseDirectory;
+                }
+
+                string filename = DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + "-SOCKET";
+                sw = new StreamWriter(path + "Log-" + filename + ".txt", true);
+                sw.WriteLine(DateTime.Now.ToString("dd-MM-yyyy hh:mm:ss tt") + ": " + message);
+                sw.Flush();
+                sw.Close();
+            }
+            catch
+            {
+                PrintWithColorRed("Error: Invalid path!");
+
+            }
         }
 
         #region Color

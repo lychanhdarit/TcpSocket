@@ -39,3 +39,9 @@ C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\Clients\obj\Debug\Clients.pdb
 H:\Developer\TcpSocket\Clients\bin\Debug\Clients.exe.config
 H:\Developer\TcpSocket\Clients\obj\Debug\Clients.exe
 H:\Developer\TcpSocket\Clients\obj\Debug\Clients.pdb
+H:\Developer\TcpSocket\Clients\bin\Debug\Clients.exe
+H:\Developer\TcpSocket\Clients\bin\Debug\Clients.pdb
+H:\Developer\TcpSocket\Clients\bin\Debug\ServerData.dll
+H:\Developer\TcpSocket\Clients\bin\Debug\Oracle.ManagedDataAccess.dll
+H:\Developer\TcpSocket\Clients\bin\Debug\ServerData.pdb
+H:\Developer\TcpSocket\Clients\obj\Debug\Clients.csprojResolveAssemblyReference.cache

@@ -16,3 +16,12 @@ C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\UDPMultiClient\bin\Debug\ServerData.p
 C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\UDPMultiClient\obj\Debug\UDPMultiClient.csprojResolveAssemblyReference.cache
 C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\UDPMultiClient\obj\Debug\UDPMultiClient.exe
 C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\UDPMultiClient\obj\Debug\UDPMultiClient.pdb
+H:\Developer\TcpSocket\UDPMultiClient\bin\Debug\UDPMultiClient.exe.config
+H:\Developer\TcpSocket\UDPMultiClient\bin\Debug\UDPMultiClient.exe
+H:\Developer\TcpSocket\UDPMultiClient\bin\Debug\UDPMultiClient.pdb
+H:\Developer\TcpSocket\UDPMultiClient\bin\Debug\Oracle.ManagedDataAccess.dll
+H:\Developer\TcpSocket\UDPMultiClient\bin\Debug\ServerData.dll
+H:\Developer\TcpSocket\UDPMultiClient\bin\Debug\ServerData.pdb
+H:\Developer\TcpSocket\UDPMultiClient\obj\Debug\UDPMultiClient.csprojResolveAssemblyReference.cache
+H:\Developer\TcpSocket\UDPMultiClient\obj\Debug\UDPMultiClient.exe
+H:\Developer\TcpSocket\UDPMultiClient\obj\Debug\UDPMultiClient.pdb

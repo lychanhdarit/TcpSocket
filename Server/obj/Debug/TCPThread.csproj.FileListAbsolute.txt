@@ -7,3 +7,12 @@ C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\Server\bin\Debug\ServerData.pdb
 C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\Server\obj\Debug\TCPThread.csprojResolveAssemblyReference.cache
 C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\Server\obj\Debug\Server.exe
 C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\Server\obj\Debug\Server.pdb
+H:\Developer\TcpSocket\Server\bin\Debug\Server.exe.config
+H:\Developer\TcpSocket\Server\bin\Debug\Server.exe
+H:\Developer\TcpSocket\Server\bin\Debug\Server.pdb
+H:\Developer\TcpSocket\Server\bin\Debug\Oracle.ManagedDataAccess.dll
+H:\Developer\TcpSocket\Server\bin\Debug\ServerData.dll
+H:\Developer\TcpSocket\Server\bin\Debug\ServerData.pdb
+H:\Developer\TcpSocket\Server\obj\Debug\TCPThread.csprojResolveAssemblyReference.cache
+H:\Developer\TcpSocket\Server\obj\Debug\Server.exe
+H:\Developer\TcpSocket\Server\obj\Debug\Server.pdb

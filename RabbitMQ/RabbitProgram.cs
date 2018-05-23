@@ -15,12 +15,19 @@ namespace RabbitMQ
         {
             while(true)
             {
-                Console.Write("\n Input: ");
+                //Console.Write("\nInput (run):  ");
+
+                //string input = Console.ReadLine();
+                //if(input == "run")
+                //{
+                //    ProcessMQ();
+                //}
                
-                string input = Console.ReadLine();
-                if(input == "run")
+                if(DateTime.Now.Second == 30 && DateTime.Now.Millisecond == 60)
                 {
-                    ProcessMQ();
+
+                    Console.WriteLine("Bay gio la: {0}",DateTime.Now);
+                  
                 }
             }
         }
@@ -152,7 +159,7 @@ namespace RabbitMQ
             //wp.heading = 90;
             wp.ignition = true; // bat tat may
             wp.speed = 40; // 40kmh
-            wp.vehicle = "BIENSO";
+            wp.vehicle = "83F3-2109";
             wp.x = 102.123456;
             wp.y = 10.123456;
             //wp.z = 20;
@@ -170,6 +177,9 @@ namespace RabbitMQ
             //
             channel.Close();
             conn.Close();
+            Console.WriteLine("-------------------------------------------------------------------------------------------------------------");
+            Console.WriteLine("Date: {0} - Mo Cua: {1} - So Bang Lai: {2} - Bat tat may: {3} - Toc do: {4} - Bien So: {5} - X: {6} - Y: {7} ", wp.datetime, wp.door, wp.driver, wp.ignition, wp.speed , wp.vehicle, wp.x, wp.y);
+            Console.WriteLine("-------------------------------------------------------------------------------------------------------------");
         }
         public static byte[] Serialize(BaseMessage wp)
         {

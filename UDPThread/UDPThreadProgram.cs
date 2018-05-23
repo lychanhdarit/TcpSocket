@@ -59,17 +59,23 @@ namespace UDPThread
                 string DeCODE = ConfigurationManager.AppSettings["DeCODE"].ToString();
                 while (true)
                 {
+                    Byte[] received = new Byte[65507];
+                    IPEndPoint tmpIpEndPoint = new IPEndPoint(IPAddress.Parse(IP_CORE_ADDRESS), int.Parse(PORT));
+                    EndPoint remoteEP = (tmpIpEndPoint);
+
                     try
                     {
-                        Byte[] received = new Byte[65507];
-
-                        IPEndPoint tmpIpEndPoint = new IPEndPoint(IPAddress.Parse(IP_CORE_ADDRESS), int.Parse(PORT));
-                        //IPEndPoint tmpIpEndPoint = new IPEndPoint(A, int.Parse(PORT));
-
-                        EndPoint remoteEP = (tmpIpEndPoint);
-
-                        int bytesReceived = soUdp.ReceiveFrom(received, ref remoteEP);
-
+                        int bytesReceived = 0;
+                        try
+                        {
+                            bytesReceived = soUdp.ReceiveFrom(received, ref remoteEP);
+                        }
+                        catch
+                        {
+                            PrintWithColorRed("Loi khi nhan du lieu");
+                            Utilities.WriteLogSocketError("Loi khi nhan du lieu");
+                        }
+                        
                         String dataReceived = System.Text.Encoding.ASCII.GetString(received);
 
 
@@ -96,8 +102,14 @@ namespace UDPThread
                         //{
                         //    nBytesRec = 0;
                         //}
+
                         PrintWithColorRed("SocketException: " + se.ToString());
-                        Utilities.WriteLog("SocketException: " + se.ToString());
+                        Utilities.WriteLogSocketError("SocketException: " + se.ToString());
+
+                        soUdp = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
+                        localIpEndPoint = new IPEndPoint(IPAddress.Parse(IP_CORE_ADDRESS), int.Parse(PORT));
+                        soUdp.Bind(localIpEndPoint);
+
                     }
                 }
 

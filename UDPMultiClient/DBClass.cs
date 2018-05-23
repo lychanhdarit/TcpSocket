@@ -44,7 +44,7 @@ namespace UDPMultiClient
 
                 con.Close();
                 Console.WriteLine("Execute DB: " + data + " DeviceId: " + Device_ID);
-                
+
                 Utilities.WriteLog("Execute DB: " + data + " DeviceId: " + Device_ID);
             }
 
@@ -52,15 +52,16 @@ namespace UDPMultiClient
             {
                 getConn().Close();
                 Console.WriteLine(e.ToString());
-                Utilities.WriteLog(e.ToString());
+                Utilities.WriteLogDatabase("Data: " + data + " DeviceID: " + Device_ID);
+                Utilities.WriteLogDatabase(e.ToString());
             }
         }
 
 
-      
 
 
-#endregion
+
+        #endregion
 
 
     }

@@ -34,7 +34,7 @@ namespace UDPMultiClient
         //The main socket on which the server listens to the clients
         static Socket serverSocket;
 
-        static byte[] byteData = new byte[1024];
+        static byte[] byteData = new byte[65507];
 
         static string PORT = ConfigurationManager.AppSettings["Port"].ToString();
         static string IP_CORE_ADDRESS = ConfigurationManager.AppSettings["IPAddress"].ToString();
@@ -52,7 +52,7 @@ namespace UDPMultiClient
                     SocketType.Dgram, ProtocolType.Udp);
 
                 //Assign the any IP of the machine and listen on port number 1000
-                //IP_CORE_ADDRESS = "192.168.2.123";
+                
                 IPEndPoint ipEndPoint = new IPEndPoint(IPAddress.Parse(IP_CORE_ADDRESS), int.Parse(PORT));
                 //Bind this address to the server
                 serverSocket.Bind(ipEndPoint);
@@ -72,7 +72,8 @@ namespace UDPMultiClient
             }
             catch (Exception ex)
             {
-                PrintWithColorRed("Loi 1: " + ex.Message);
+                PrintWithColorRed("Error 1: " + ex.Message);
+
             }
         }
 
@@ -80,26 +81,10 @@ namespace UDPMultiClient
         {
             try
             {
-
-                //SocketError errorCode;
-                //int nBytesRec = serverSocket.EndReceive(ar, out errorCode);
-                //if (errorCode != SocketError.Success)
-                //{
-                //    nBytesRec = 0;
-                //}
-
-
                 IPEndPoint ipeSender = new IPEndPoint(IPAddress.Any, 0);
                 EndPoint epSender = (EndPoint)ipeSender;
-                //if(serverSocket.Connected)
-                //{
-
-
-                //}
                 serverSocket.EndReceiveFrom(ar, ref epSender);
-
-
-               
+                
                 //Transform the array of bytes received from the user into an
                 //intelligent form of object Data
                 Data msgReceived = new Data(byteData);
@@ -133,8 +118,8 @@ namespace UDPMultiClient
                 {
                     
                     clientList.Add(clientInfo);
-                    PrintWithColorGreen("<<<" + clientInfo.endpoint.ToString() + " has joined>>>");
-                    Utilities.WriteLog("<<<" + clientInfo.endpoint.ToString() + " has joined>>>");
+                    PrintWithColorGreen("" + clientInfo.endpoint.ToString() + " connected.");
+                   // Utilities.WriteLog("<<<" + clientInfo.endpoint.ToString() + " has joined>>>");
                     PrintWithColorSilver("-----------------------------------------------------------");
                     PrintWithColor("Revc " + DateTime.Now.ToString() + " : " + msgReceived.strMessage);
                     Utilities.WriteLog(msgReceived.strMessage);
@@ -160,27 +145,21 @@ namespace UDPMultiClient
             }
             catch (SocketException socketException)
             {
-                //WSAECONNRESET, the other side closed impolitely 
-                //if (socketException.ErrorCode == 10054 ||
-                //   ((socketException.ErrorCode != 10004) &&
-                //   (socketException.ErrorCode != 10053)))
-                //{
-                //    // Complete the disconnect request.
-                //    String remoteIP =
-                //      ((IPEndPoint)serverSocket.RemoteEndPoint).Address.ToString();
-                //    String remotePort =
-                //      ((IPEndPoint)serverSocket.RemoteEndPoint).Port.ToString();
-                //    //this.owner.DisconnectClient(remoteIP, remotePort);
-                //    serverSocket.Close();
-                //    serverSocket = null;
-                //}
+                SocketError errorCode;
+                int nBytesRec = serverSocket.EndReceive(ar, out errorCode);
+                if (errorCode != SocketError.Success)
+                {
+                    nBytesRec = 0;
+                }
                 PrintWithColorRed("Error Socket: " + socketException.Message);
+
+                Utilities.WriteLogSocketError("SocketException: " + socketException.Message.ToString());
             }
             catch (Exception e) 
             {
               
                 PrintWithColorRed("Error 2: " + e.Message);
-
+                Utilities.WriteLogSocketError("SocketException: " + e.Message.ToString());
             }
         }
 
@@ -193,7 +172,7 @@ namespace UDPMultiClient
             catch (Exception ex)
             {
                 PrintWithColorRed(ex.Message);
-                //MessageBox.Show(ex.Message, "SGSServerUDP", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Utilities.WriteLogSocketError("SocketException: " + ex.Message.ToString());
             }
         }
 
@@ -337,28 +316,6 @@ namespace UDPMultiClient
         //Converts the bytes into an object of type Data
         public Data(byte[] data)
         {
-            //The first four bytes are for the Command
-            //this.cmdCommand = (Command)BitConverter.ToInt32(data, 0);
-
-            ////The next four store the length of the name
-            //int nameLen = BitConverter.ToInt32(data, 4);
-
-            ////The next four store the length of the message
-            //int msgLen = BitConverter.ToInt32(data, 8);
-
-            ////This check makes sure that strName has been passed in the array of bytes
-            //if (nameLen > 0)
-            //    this.strName = Encoding.UTF8.GetString(data, 12, nameLen);
-            //else
-            //    this.strName = null;
-
-            //This checks for a null message field
-            //if (msgLen > 0)
-            //    this.strMessage = Encoding.UTF8.GetString(data, 12 + nameLen, msgLen);
-            //else
-            //    this.strMessage = null;
-
-
             var byteArray = data.TakeWhile((v, index) => data.Skip(index).Any(w => w != 0x00)).ToArray();
             strMessage = Encoding.ASCII.GetString(byteArray, 0, byteArray.Length);
         }
