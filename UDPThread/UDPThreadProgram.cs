@@ -13,7 +13,7 @@ namespace UDPThread
 {
     class UDPThreadProgram
     {
-       
+
         public Thread sampleUdpThread;
 
         static string PORT = ConfigurationManager.AppSettings["Port"].ToString();
@@ -52,69 +52,62 @@ namespace UDPThread
                 //Create a UDP socket.
                 Socket soUdp = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
 
-                
+
                 IPEndPoint localIpEndPoint = new IPEndPoint(IPAddress.Parse(IP_CORE_ADDRESS), int.Parse(PORT));
 
                 soUdp.Bind(localIpEndPoint);
                 string DeCODE = ConfigurationManager.AppSettings["DeCODE"].ToString();
                 while (true)
                 {
-                    Byte[] received = new Byte[65507];
-                    IPEndPoint tmpIpEndPoint = new IPEndPoint(IPAddress.Parse(IP_CORE_ADDRESS), int.Parse(PORT));
-                    EndPoint remoteEP = (tmpIpEndPoint);
-
                     try
                     {
+                        Byte[] received = new Byte[65507];
+                        IPEndPoint tmpIpEndPoint = new IPEndPoint(IPAddress.Parse(IP_CORE_ADDRESS), int.Parse(PORT));
+                        EndPoint remoteEP = (tmpIpEndPoint);
+
+
                         int bytesReceived = 0;
                         try
                         {
                             bytesReceived = soUdp.ReceiveFrom(received, ref remoteEP);
+
+                            String dataReceived = System.Text.Encoding.ASCII.GetString(received);
+
+
+                            if (DeCODE == "1")
+                            {
+                                dataReceived = GetHexStringFrom(received);
+                            }
+                            else
+                            {
+                                var byteArray = received.TakeWhile((v, index) => received.Skip(index).Any(w => w != 0x00)).ToArray();
+                                dataReceived = Encoding.ASCII.GetString(byteArray, 0, byteArray.Length);
+
+                            }
+
+                            PrintWithColor("Revc " + DateTime.Now.ToString() + " from " + remoteEP.ToString() + ": " + dataReceived);
+                            Utilities.WriteLog("Revc from " + remoteEP.ToString() + ": " + dataReceived);
+                            SendSocketData(dataReceived, soUdp, remoteEP);
+
                         }
-                        catch
+                        catch (Exception C)
                         {
-                            PrintWithColorRed("Loi khi nhan du lieu");
-                            Utilities.WriteLogSocketError("Loi khi nhan du lieu");
-                        }
-                        
-                        String dataReceived = System.Text.Encoding.ASCII.GetString(received);
-
-
-                        if (DeCODE == "1")
-                        {
-                            dataReceived = GetHexStringFrom(received);
-                        }
-                        else
-                        {
-                            var byteArray = received.TakeWhile((v, index) => received.Skip(index).Any(w => w != 0x00)).ToArray();
-                            dataReceived = Encoding.ASCII.GetString(byteArray, 0, byteArray.Length);
-
+                            PrintWithColorRed("Error Revc: " + C.Message);
+                            Utilities.WriteLogSocketError("Error Revc: " + C.Message);
                         }
 
-                        PrintWithColor("Revc " + DateTime.Now.ToString() + " from " + remoteEP.ToString() + ": " + dataReceived);
-                        Utilities.WriteLog("Revc from " + remoteEP.ToString() + ": " + dataReceived);
-                        SendSocketData(dataReceived, soUdp, remoteEP);
+
                     }
                     catch (SocketException se)
                     {
-                        //SocketError errorCode;
-                        //int nBytesRec = soUdp.EndReceive(received, out errorCode);
-                        //if (errorCode != SocketError.Success)
-                        //{
-                        //    nBytesRec = 0;
-                        //}
-
                         PrintWithColorRed("SocketException: " + se.ToString());
                         Utilities.WriteLogSocketError("SocketException: " + se.ToString());
-
-                        soUdp = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
-                        localIpEndPoint = new IPEndPoint(IPAddress.Parse(IP_CORE_ADDRESS), int.Parse(PORT));
-                        soUdp.Bind(localIpEndPoint);
 
                     }
                 }
 
             }
-            
+
             catch (Exception se)
             {
                 PrintWithColorRed("A Socket Exception has occurred!" + se.ToString());
@@ -151,7 +144,7 @@ namespace UDPThread
 
             string[] StringTFirstKey = ConfigurationManager.AppSettings["StringT"].ToString().Split(',');
             string DeviceID = ConfigurationManager.AppSettings["deviceID"].ToString();
-           
+
 
 
             // Send Back
