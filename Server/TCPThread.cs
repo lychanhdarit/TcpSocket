@@ -88,8 +88,26 @@ namespace Server
                         PrintWithColorSilver("---------------------------");
                         Utilities.WriteLog(msg);
 
-                        _db.excuteMsgToDB(int.Parse(DeviceID), msg);
+                        if (StringTFirstKey.Length > 0)
+                        {
 
+                            for (int i = 0; i < StringTFirstKey.Length - 1; i++)
+                            {
+                                if (msg.IndexOf(StringTFirstKey[i]) > -1)
+                                {
+                                    _db.excuteMsgToDB(int.Parse(DeviceID), msg);
+                                    PrintWithColorSilver("-----------------------------------------------------------");
+                                    break;
+                                }
+                            }
+
+                        }
+                        else
+                        {
+                            _db.excuteMsgToDB(int.Parse(DeviceID), msg);
+                            PrintWithColorSilver("-----------------------------------------------------------");
+                        }
+                        
 
                         ////DataManager(packet);
                         ////Print  Color

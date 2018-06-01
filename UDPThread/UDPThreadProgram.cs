@@ -51,8 +51,6 @@ namespace UDPThread
                 //IP_CORE_ADDRESS = "192.168.2.123";
                 //Create a UDP socket.
                 Socket soUdp = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
-
-
                 IPEndPoint localIpEndPoint = new IPEndPoint(IPAddress.Parse(IP_CORE_ADDRESS), int.Parse(PORT));
 
                 soUdp.Bind(localIpEndPoint);
@@ -145,8 +143,6 @@ namespace UDPThread
             string[] StringTFirstKey = ConfigurationManager.AppSettings["StringT"].ToString().Split(',');
             string DeviceID = ConfigurationManager.AppSettings["deviceID"].ToString();
 
-
-
             // Send Back
             switch (TypeDevices(data))
             {
@@ -192,9 +188,9 @@ namespace UDPThread
             if (StringTFirstKey.Length > 0)
             {
 
-                for (int i = 0; i < StringTFirstKey.Length; i++)
+                for (int i = 0; i < StringTFirstKey.Length-1; i++)
                 {
-                    if (data.IndexOf(StringTFirstKey[i]) > -1)
+                    if (data.IndexOf(StringTFirstKey[i]) > -1 && !String.IsNullOrEmpty(StringTFirstKey[i]))
                     {
                         _db.excuteMsgToDB(int.Parse(DeviceID), data);
                         PrintWithColorSilver("-----------------------------------------------------------");
@@ -203,6 +199,13 @@ namespace UDPThread
                 }
 
             }
+            else
+            {
+                _db.excuteMsgToDB(int.Parse(DeviceID), data);
+                PrintWithColorSilver("-----------------------------------------------------------");
+            }
+
+
         }
 
 
