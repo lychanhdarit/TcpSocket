@@ -25,3 +25,15 @@ H:\Developer\TcpSocket\UDPThread\bin\Debug\ServerData.pdb
 H:\Developer\TcpSocket\UDPThread\obj\Debug\UDPThread.csprojResolveAssemblyReference.cache
 H:\Developer\TcpSocket\UDPThread\obj\Debug\UDPThread.exe
 H:\Developer\TcpSocket\UDPThread\obj\Debug\UDPThread.pdb
+D:\Developer\TcpSocket\UDPThread\bin\Debug\UDPThread.exe.config
+D:\Developer\TcpSocket\UDPThread\bin\Debug\UDPThread.exe
+D:\Developer\TcpSocket\UDPThread\bin\Debug\UDPThread.pdb
+D:\Developer\TcpSocket\UDPThread\bin\Debug\Oracle.ManagedDataAccess.dll
+D:\Developer\TcpSocket\UDPThread\bin\Debug\ServerData.dll
+D:\Developer\TcpSocket\UDPThread\bin\Debug\ServerData.pdb
+D:\Developer\TcpSocket\UDPThread\bin\Debug\ServerData.dll.config
+D:\Developer\TcpSocket\UDPThread\obj\Debug\UDPThread.csprojResolveAssemblyReference.cache
+D:\Developer\TcpSocket\UDPThread\obj\Debug\UDPThread.csproj.CoreCompileInputs.cache
+D:\Developer\TcpSocket\UDPThread\obj\Debug\UDPThread.csproj.CopyComplete
+D:\Developer\TcpSocket\UDPThread\obj\Debug\UDPThread.exe
+D:\Developer\TcpSocket\UDPThread\obj\Debug\UDPThread.pdb

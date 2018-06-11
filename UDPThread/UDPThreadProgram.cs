@@ -83,7 +83,7 @@ namespace UDPThread
 
                             }
 
-                            PrintWithColor("Revc " + DateTime.Now.ToString() + " from " + remoteEP.ToString() + ": " + dataReceived);
+                            PrintWithColor("Revc " + DateTime.Now.ToString("dd-MM-yyyy hh:mm:ss tt") + " from " + remoteEP.ToString() + ": " + dataReceived);
                             Utilities.WriteLog("Revc from " + remoteEP.ToString() + ": " + dataReceived);
                             SendSocketData(dataReceived, soUdp, remoteEP);
 
@@ -153,7 +153,7 @@ namespace UDPThread
 
                         sendString = Adta[0] + "," + Adta[1] + "," + Adta[2] + "," + Adta[4] + "," + Adta[5] + "#";
                         socket.SendTo(Encoding.ASCII.GetBytes(sendString), ep);
-                        PrintWithColorGreen("Send:" + sendString);
+                        PrintWithColorGreen("Send " + DateTime.Now.ToString("dd-MM-yyyy hh:mm:ss tt") + ":" + sendString);
                         PrintWithColorSilver("-----------------------------------------------------------");
                         Utilities.WriteLog("Send:" + sendString);
                     }
@@ -165,7 +165,7 @@ namespace UDPThread
 
                         sendString = Adta[0] + "," + Adta[1] + "," + Adta[2] + "," + Adta[6] + "," + Adta[7] + "#";
                         socket.SendTo(Encoding.ASCII.GetBytes(sendString), ep);
-                        PrintWithColorGreen("Send:" + sendString);
+                        PrintWithColorGreen("Send "+ DateTime.Now.ToString("dd-MM-yyyy hh:mm:ss tt") + ":" + sendString);
                         PrintWithColorSilver("-----------------------------------------------------------");
                         Utilities.WriteLog("Send:" + sendString);
                     }
@@ -175,9 +175,9 @@ namespace UDPThread
                     {
 
 
-                        sendString = Adta[0] + "," + Adta[1] + "," + Adta[2] + "," + Adta[8] + "," + Adta[8] + "#";
+                        sendString = Adta[0] + "," + Adta[1] + "," + Adta[2] + "," + Adta[8] + "," + Adta[9] + "#";
                         socket.SendTo(Encoding.ASCII.GetBytes(sendString), ep);
-                        PrintWithColorGreen("Send:" + sendString);
+                        PrintWithColorGreen("Send " + DateTime.Now.ToString("dd-MM-yyyy hh:mm:ss tt") + ":" + sendString);
                         PrintWithColorSilver("-----------------------------------------------------------");
                         Utilities.WriteLog("Send:" + sendString);
                     }
