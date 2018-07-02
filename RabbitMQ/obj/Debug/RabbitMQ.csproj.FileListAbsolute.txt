@@ -19,3 +19,14 @@ H:\Developer\TcpSocket\RabbitMQ\bin\Debug\RabbitMQ.Client.xml
 H:\Developer\TcpSocket\RabbitMQ\obj\Debug\RabbitMQ.csprojResolveAssemblyReference.cache
 H:\Developer\TcpSocket\RabbitMQ\obj\Debug\RabbitMQ.exe
 H:\Developer\TcpSocket\RabbitMQ\obj\Debug\RabbitMQ.pdb
+D:\Developer\TcpSocket\RabbitMQ\bin\Debug\RabbitMQ.exe.config
+D:\Developer\TcpSocket\RabbitMQ\bin\Debug\RabbitMQ.exe
+D:\Developer\TcpSocket\RabbitMQ\bin\Debug\RabbitMQ.pdb
+D:\Developer\TcpSocket\RabbitMQ\bin\Debug\protobuf-net.pdb
+D:\Developer\TcpSocket\RabbitMQ\bin\Debug\protobuf-net.xml
+D:\Developer\TcpSocket\RabbitMQ\bin\Debug\RabbitMQ.Client.xml
+D:\Developer\TcpSocket\RabbitMQ\obj\Debug\RabbitMQ.csprojResolveAssemblyReference.cache
+D:\Developer\TcpSocket\RabbitMQ\obj\Debug\RabbitMQ.csproj.CoreCompileInputs.cache
+D:\Developer\TcpSocket\RabbitMQ\obj\Debug\RabbitMQ.csproj.CopyComplete
+D:\Developer\TcpSocket\RabbitMQ\obj\Debug\RabbitMQ.exe
+D:\Developer\TcpSocket\RabbitMQ\obj\Debug\RabbitMQ.pdb

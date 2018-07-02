@@ -18,6 +18,27 @@ namespace Server
         static List<ClientData> _clients;
         static void Main(string[] args)
         {
+
+            //string StringT = ConfigurationManager.AppSettings["StringT"].ToString();
+            //string[] StringTFirstKey = StringT.Split(',');
+            //Console.WriteLine(StringTFirstKey.Length + " - " + StringT);
+            //if (StringTFirstKey.Length > 0)
+            //{
+
+            //    for (int i = 0; i < StringTFirstKey.Length -1; i++)
+            //    {
+            //        Console.WriteLine("ST: " + StringTFirstKey[i]);
+            //        //if (msg.IndexOf(StringTFirstKey[i]) > -1 && StringTFirstKey[i] != "")
+            //        //{
+            //        //    _db.excuteMsgToDB(int.Parse(DeviceID), msg);
+            //        //    PrintWithColorSilver("-----------------------------------------------------------");
+            //        //    break;
+            //        //}
+            //    }
+
+            //}
+            //Console.ReadLine();
+
             listenerSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             _clients = new List<ClientData>();
 
@@ -55,7 +76,8 @@ namespace Server
             Socket clientSocket = (Socket)cSocket;
             byte[] Buffer = new byte[1024];
             int readBytes = 0;
-            string[] StringTFirstKey = ConfigurationManager.AppSettings["StringT"].ToString().Split(',');
+            string StringT = ConfigurationManager.AppSettings["StringT"].ToString();
+            string[] StringTFirstKey = StringT.Split(',');
             string DeviceID = ConfigurationManager.AppSettings["deviceID"].ToString();
             string DeCODE = ConfigurationManager.AppSettings["DeCODE"].ToString();
             for (;;)
@@ -91,9 +113,10 @@ namespace Server
                         if (StringTFirstKey.Length > 0)
                         {
 
-                            for (int i = 0; i < StringTFirstKey.Length - 1; i++)
+                            for (int i = 0; i < StringTFirstKey.Length; i++)
                             {
-                                if (msg.IndexOf(StringTFirstKey[i]) > -1)
+                                //Console.WriteLine("ST: "+StringTFirstKey[i] );
+                                if (msg.IndexOf(StringTFirstKey[i]) > -1 && StringTFirstKey[i].Replace(" ","") !="")
                                 {
                                     _db.excuteMsgToDB(int.Parse(DeviceID), msg);
                                     PrintWithColorSilver("-----------------------------------------------------------");
@@ -104,8 +127,12 @@ namespace Server
                         }
                         else
                         {
-                            _db.excuteMsgToDB(int.Parse(DeviceID), msg);
-                            PrintWithColorSilver("-----------------------------------------------------------");
+                            
+                            //if (msg.IndexOf(StringT) > -1 && StringT != "")
+                            //{
+                                _db.excuteMsgToDB(int.Parse(DeviceID), msg);
+                                PrintWithColorSilver("-----------------------------------------------------------");
+                            //}
                         }
                         
 

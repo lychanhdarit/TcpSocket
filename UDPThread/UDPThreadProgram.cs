@@ -188,7 +188,7 @@ namespace UDPThread
             if (StringTFirstKey.Length > 0)
             {
 
-                for (int i = 0; i < StringTFirstKey.Length-1; i++)
+                for (int i = 0; i < StringTFirstKey.Length; i++)
                 {
                     if (data.IndexOf(StringTFirstKey[i]) > -1 && !String.IsNullOrEmpty(StringTFirstKey[i]))
                     {
