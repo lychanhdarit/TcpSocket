@@ -13,22 +13,35 @@ namespace RabbitMQ
     {
         static void Main(string[] args)
         {
-            while(true)
+            while (true)
             {
-                //Console.Write("\nInput (run):  ");
-
-                //string input = Console.ReadLine();
-                //if(input == "run")
-                //{
-                //    ProcessMQ();
-                //}
-               
-                if(DateTime.Now.Second == 30 && DateTime.Now.Millisecond == 60)
+                Console.Write("\nInput (run):  ");
+                string input = Console.ReadLine();
+                if (input == "run")
                 {
-
-                    Console.WriteLine("Bay gio la: {0}",DateTime.Now);
-                  
+                    // create WayPoint
+                    WayPoint wp = new WayPoint();
+                    wp.datetime = DateTimeToUnixTimestamp(new DateTime(2013, 6, 21, 15, 16, 10, DateTimeKind.Local)); // - 1371802570000 - unix time - see .proto;
+                    wp.door = false; // dong mo cua
+                    wp.driver = "SOBANGLAI";
+                    //wp.heading = 90;
+                    wp.ignition = true; // bat tat may
+                    wp.speed = 40; // 40kmh
+                    wp.vehicle = "83F32109";
+                    wp.x = 102.123456;
+                    wp.y = 10.123456;
+                    //wp.z = 20;
+                    ProcessMQ(wp);
                 }
+                Console.Write("\nInput (c) continue:  ");
+                while (Console.ReadLine() == "c")
+                {
+                    Console.Write("\nInput (c) continue:  ");
+                }
+                //if (DateTime.Now.Second == 30 && DateTime.Now.Millisecond == 60)
+                //{
+                //    Console.WriteLine("Bay gio la: {0}",DateTime.Now);
+                //}
             }
         }
         public static void CheckBP()
@@ -136,7 +149,7 @@ namespace RabbitMQ
                 Console.WriteLine("IO Bat/Tat may sai!");
             }
         }
-        public static void ProcessMQ()
+        public static void ProcessMQ(WayPoint wp)
         {
             // connection
             ConnectionFactory factory = new ConnectionFactory();
@@ -150,27 +163,9 @@ namespace RabbitMQ
 
             // The IConnection interface can then be used to open a channel:
             IModel channel = conn.CreateModel();
-
-            // create WayPoint
-            WayPoint wp = new WayPoint();
-            wp.datetime = DateTimeToUnixTimestamp(new DateTime(2013, 6, 21, 15, 16, 10, DateTimeKind.Local)); // - 1371802570000 - unix time - see .proto;
-            wp.door = false; // dong mo cua
-            wp.driver = "SOBANGLAI";
-            //wp.heading = 90;
-            wp.ignition = true; // bat tat may
-            wp.speed = 40; // 40kmh
-            wp.vehicle = "83F3-2109";
-            wp.x = 102.123456;
-            wp.y = 10.123456;
-            //wp.z = 20;
-
-
             BaseMessage msg = new BaseMessage();
             msg.msgType = BaseMessage.MsgType.WayPoint;
-
             Extensible.AppendValue<WayPoint>(msg, RabbitMQ.BaseMessage.MsgType.WayPoint.GetHashCode(), wp);
-
-
             byte[] b = Serialize(msg);
             //channel.BasicPublish("ufms.all", "", null, b);
             channel.BasicPublish("tracking.atg", "track1", null, b);
@@ -178,7 +173,7 @@ namespace RabbitMQ
             channel.Close();
             conn.Close();
             Console.WriteLine("-------------------------------------------------------------------------------------------------------------");
-            Console.WriteLine("Date: {0} - Mo Cua: {1} - So Bang Lai: {2} - Bat tat may: {3} - Toc do: {4} - Bien So: {5} - X: {6} - Y: {7} ", wp.datetime, wp.door, wp.driver, wp.ignition, wp.speed , wp.vehicle, wp.x, wp.y);
+            Console.WriteLine("Date: {0} - Mo Cua: {1} - So Bang Lai: {2} - Bat tat may: {3} - Toc do: {4} - Bien So: {5} - X: {6} - Y: {7} ", wp.datetime, wp.door, wp.driver, wp.ignition, wp.speed, wp.vehicle, wp.x, wp.y);
             Console.WriteLine("-------------------------------------------------------------------------------------------------------------");
         }
         public static byte[] Serialize(BaseMessage wp)
