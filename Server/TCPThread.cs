@@ -74,7 +74,7 @@ namespace Server
         {
             DbClass _db = new DbClass();
             Socket clientSocket = (Socket)cSocket;
-            byte[] Buffer = new byte[1024];
+            byte[] Buffer = new byte[65507];
             int readBytes = 0;
             string StringT = ConfigurationManager.AppSettings["StringT"].ToString();
             string[] StringTFirstKey = StringT.Split(',');
@@ -144,7 +144,7 @@ namespace Server
                 catch(Exception c)
                 {
                     PrintWithColorRed(c.Message);
-                    PrintWithColorRed("Disconnect! ");
+                    //PrintWithColorRed("Disconnect! ");
                     return;
                 }
             }

@@ -19,4 +19,3 @@ D:\Developer\TcpSocket\ServerData\obj\Debug\ServerData.csproj.CoreCompileInputs.
 D:\Developer\TcpSocket\ServerData\obj\Debug\ServerData.csproj.CopyComplete
 D:\Developer\TcpSocket\ServerData\obj\Debug\ServerData.dll
 D:\Developer\TcpSocket\ServerData\obj\Debug\ServerData.pdb
-D:\Developer\TcpSocket\ServerData\obj\Debug\ServerData.csprojResolveAssemblyReference.cache
