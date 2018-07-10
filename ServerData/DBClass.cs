@@ -14,14 +14,6 @@ namespace ServerData
 {
     class DBClass 
     {
-        int result;
-
-       
-
-        public DBClass()
-        {
-            result = 0;
-        }
         public OracleConnection getConn()
         {
             return new OracleConnection(ConfigurationManager.AppSettings["connectionString"].ToString());

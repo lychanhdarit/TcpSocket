@@ -45,3 +45,12 @@ H:\Developer\TcpSocket\Clients\bin\Debug\ServerData.dll
 H:\Developer\TcpSocket\Clients\bin\Debug\Oracle.ManagedDataAccess.dll
 H:\Developer\TcpSocket\Clients\bin\Debug\ServerData.pdb
 H:\Developer\TcpSocket\Clients\obj\Debug\Clients.csprojResolveAssemblyReference.cache
+D:\SOCKET\TcpSocket\Clients\bin\Debug\Clients.exe.config
+D:\SOCKET\TcpSocket\Clients\obj\Debug\Clients.exe
+D:\SOCKET\TcpSocket\Clients\obj\Debug\Clients.pdb
+D:\SOCKET\TcpSocket\Clients\bin\Debug\Clients.exe
+D:\SOCKET\TcpSocket\Clients\bin\Debug\Clients.pdb
+D:\SOCKET\TcpSocket\Clients\bin\Debug\ServerData.dll
+D:\SOCKET\TcpSocket\Clients\bin\Debug\Oracle.ManagedDataAccess.dll
+D:\SOCKET\TcpSocket\Clients\bin\Debug\ServerData.pdb
+D:\SOCKET\TcpSocket\Clients\obj\Debug\Clients.csprojResolveAssemblyReference.cache

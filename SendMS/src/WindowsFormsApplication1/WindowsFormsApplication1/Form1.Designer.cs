@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApplication1
+﻿namespace SendMQ
 {
     partial class Form1
     {

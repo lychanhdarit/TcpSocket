@@ -1,0 +1,5 @@
+D:\SOCKET\TcpSocket\SendMS\src\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\SendData.exe.config
+D:\SOCKET\TcpSocket\SendMS\src\WindowsFormsApplication1\WindowsFormsApplication1\obj\x86\Debug\SendMQ.csprojResolveAssemblyReference.cache
+D:\SOCKET\TcpSocket\SendMS\src\WindowsFormsApplication1\WindowsFormsApplication1\obj\x86\Debug\SendMQ.Form1.resources
+D:\SOCKET\TcpSocket\SendMS\src\WindowsFormsApplication1\WindowsFormsApplication1\obj\x86\Debug\SendMQ.Properties.Resources.resources
+D:\SOCKET\TcpSocket\SendMS\src\WindowsFormsApplication1\WindowsFormsApplication1\obj\x86\Debug\SendMQ.csproj.GenerateResource.Cache

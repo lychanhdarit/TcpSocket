@@ -12,7 +12,7 @@ using ProtoBuf;
 using System.Threading;
 using ufms;
 
-namespace WindowsFormsApplication1
+namespace SendMQ
 {
     public partial class Form1 : Form
     {
@@ -190,7 +190,9 @@ namespace WindowsFormsApplication1
             //process data
 
             #region data
+            DbClass _db = new DbClass();
             DataTable data = new DataTable();
+            data = _db.GetDataSMS("select * from GPS_REALTIME_SEND_DATA");
             foreach (DataRow row in data.Rows)
             {
                 wp = new WayPoint();
@@ -228,11 +230,17 @@ namespace WindowsFormsApplication1
                 }
                 dataGridView1.DataSource = tempdata;
             }
-
+            dataGridView1.DataSource = data.DefaultView;
+            MessageBox.Show(data.Rows.Count.ToString());
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //DbClass _db = new DbClass();
+            //DataTable data = new DataTable();
+            //data = _db.GetDataSMS("select * from GPS_REALTIME_SEND_DATA");
+            //dataGridView1.DataSource = data.DefaultView;
+            //MessageBox.Show(data.Rows.Count.ToString());
             // create WayPoint
             timer1 = new System.Windows.Forms.Timer();
             timer1.Tick += new EventHandler(timer1_Tick);
