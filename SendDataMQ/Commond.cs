@@ -22,13 +22,13 @@ namespace SendDataMQ
         {
             return (row.Row.Table.Columns.Contains(FieldName) && row[FieldName] != DBNull.Value ? Convert.ToInt32(row[FieldName]) : 0);
         }
-        public static float GetFloatFieldValue(DataRowView row, string FieldName)
+        public static float GetFloatFieldValue(DataRow row, string FieldName)
         {
-            return (row.Row.Table.Columns.Contains(FieldName) && row[FieldName] != DBNull.Value ? Convert.ToSingle(row[FieldName]) : 0);
+            return (row.Table.Columns.Contains(FieldName) && row[FieldName] != DBNull.Value ? Convert.ToSingle(row[FieldName]) : 0);
         }
-        public static double GetDoubleFieldValue(DataRowView row, string FieldName)
+        public static double GetDoubleFieldValue(DataRow row, string FieldName)
         {
-            return (row.Row.Table.Columns.Contains(FieldName) && row[FieldName] != DBNull.Value ? Convert.ToDouble(row[FieldName]) : 0);
+            return (row.Table.Columns.Contains(FieldName) && row[FieldName] != DBNull.Value ? Convert.ToDouble(row[FieldName]) : 0);
         }
         public static bool GetBooleanFieldValue(DataRowView row, string FieldName)
         {

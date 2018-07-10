@@ -90,7 +90,7 @@ namespace SendDataMQ
                 data = _db.GetDataSMS("select * from GPS_REALTIME_SEND_DATA");
             }
             List<WayPoint> listWP = new List<WayPoint>();
-            foreach (DataRowView row in data.Rows)
+            foreach (DataRow row in data.Rows)
             {
                 wp = new WayPoint();
                 wp.vehicle = Commond.GetStringFieldValue(row, "Vehicle");
