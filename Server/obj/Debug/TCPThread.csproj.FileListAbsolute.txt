@@ -28,3 +28,12 @@ D:\Developer\TcpSocket\Server\obj\Debug\TCPThread.csproj.CoreCompileInputs.cache
 D:\Developer\TcpSocket\Server\obj\Debug\TCPThread.csproj.CopyComplete
 D:\Developer\TcpSocket\Server\obj\Debug\Server.exe
 D:\Developer\TcpSocket\Server\obj\Debug\Server.pdb
+D:\SOCKET\TcpSocket\Server\bin\Debug\Server.exe.config
+D:\SOCKET\TcpSocket\Server\bin\Debug\Server.exe
+D:\SOCKET\TcpSocket\Server\bin\Debug\Server.pdb
+D:\SOCKET\TcpSocket\Server\bin\Debug\Oracle.ManagedDataAccess.dll
+D:\SOCKET\TcpSocket\Server\bin\Debug\ServerData.dll
+D:\SOCKET\TcpSocket\Server\bin\Debug\ServerData.pdb
+D:\SOCKET\TcpSocket\Server\obj\Debug\TCPThread.csprojResolveAssemblyReference.cache
+D:\SOCKET\TcpSocket\Server\obj\Debug\Server.exe
+D:\SOCKET\TcpSocket\Server\obj\Debug\Server.pdb

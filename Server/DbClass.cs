@@ -50,9 +50,9 @@ namespace Server
             catch (OracleException e)
             {
                 getConn().Close();
-                Console.WriteLine(e.ToString());
+                //Console.WriteLine(e.ToString());
                 Utilities.WriteLogDatabase("Data: "+data+" DeviceID: "+Device_ID);
-                Utilities.WriteLogDatabase(e.ToString());
+                //Utilities.WriteLogDatabase(e.ToString());
             }
         }
 

@@ -19,26 +19,7 @@ namespace Server
         static void Main(string[] args)
         {
 
-            //string StringT = ConfigurationManager.AppSettings["StringT"].ToString();
-            //string[] StringTFirstKey = StringT.Split(',');
-            //Console.WriteLine(StringTFirstKey.Length + " - " + StringT);
-            //if (StringTFirstKey.Length > 0)
-            //{
-
-            //    for (int i = 0; i < StringTFirstKey.Length -1; i++)
-            //    {
-            //        Console.WriteLine("ST: " + StringTFirstKey[i]);
-            //        //if (msg.IndexOf(StringTFirstKey[i]) > -1 && StringTFirstKey[i] != "")
-            //        //{
-            //        //    _db.excuteMsgToDB(int.Parse(DeviceID), msg);
-            //        //    PrintWithColorSilver("-----------------------------------------------------------");
-            //        //    break;
-            //        //}
-            //    }
-
-            //}
-            //Console.ReadLine();
-
+           
             listenerSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             _clients = new List<ClientData>();
 
@@ -107,7 +88,7 @@ namespace Server
                         Console.WriteLine(DateTime.Now.ToString() + ": ");
                         PrintWithColor(msg);
                         //PrintWithColor("Bit: " + BitConvert(Buffer));
-                        PrintWithColorSilver("---------------------------");
+                        //PrintWithColorSilver("---------------------------");
                         Utilities.WriteLog(msg);
 
                         if (StringTFirstKey.Length > 0)
@@ -143,7 +124,7 @@ namespace Server
                 }
                 catch(Exception c)
                 {
-                    PrintWithColorRed(c.Message);
+                    Console.WriteLine(c.Message);
                     //PrintWithColorRed("Disconnect! ");
                     return;
                 }
