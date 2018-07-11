@@ -50,7 +50,7 @@ namespace SendDataMQ
             if (countForAll == 0)
             {
                 int result = CallSend(1);
-                if(result == 1)
+                if (result == 1)
                 {
                     lbLog.Text = "Đã gửi tất cả lúc " + DateTime.Now.ToString();
                 }
@@ -90,7 +90,7 @@ namespace SendDataMQ
             DateTime nowDate = DateTime.Now;
             WayPoint wp = new WayPoint();
             List<WayPoint> wpoints = new List<WayPoint>();
-          
+
             DbClass _db = new DbClass();
             DataTable data = new DataTable();
             if (all == 0)// chỉ gửi speed > 0
@@ -102,28 +102,63 @@ namespace SendDataMQ
                 data = _db.GetDataSMS(ConfigurationManager.AppSettings["SqlCommand180s"].ToString());
             }
             List<WayPoint> listWP = new List<WayPoint>();
-            if(data != null)
+            if (data != null)
             {
-                foreach (DataRow row in data.Rows)
+                try
                 {
-                    wp = new WayPoint();
-                    wp.vehicle = Commond.GetStringFieldValue(row, "Vehicle");
-                    wp.driver = Commond.GetStringFieldValue(row, "Driver");
-                    nowDate = Commond.GetDateTimeFieldValue(row, "Datetime"); ;
-                    wp.datetime = DateTimeToUnixTimestamp(new DateTime(nowDate.Year, nowDate.Month, nowDate.Day, nowDate.Hour, nowDate.Minute, nowDate.Second, nowDate.Millisecond, DateTimeKind.Local));
-                    wp.speed = Commond.GetFloatFieldValue(row, "Speed");
-                    wp.x = Commond.GetDoubleFieldValue(row, "x");
-                    wp.y = Commond.GetDoubleFieldValue(row, "y");
-                    wp.z = Commond.GetFloatFieldValue(row, "z");
-                    wp.heading = Commond.GetFloatFieldValue(row, "Heading");
-                    wp.ignition = Commond.GetBooleanFieldValue(row, "Ignition");
-                    wp.door = Commond.GetBooleanFieldValue(row, "Door");
-                    wp.aircon = Commond.GetBooleanFieldValue(row, "AirCon");
-                    wp.maxvalidspeed = Commond.GetDoubleFieldValue(row, "MaxValidSpeed");
-                    wp.vss = Commond.GetFloatFieldValue(row, "VSS");
-                    wp.location = Commond.GetStringFieldValue(row, "Location");
-                    listWP.Add(wp);
-                    SendData(wp);
+                    #region connection
+
+                    ConnectionFactory factory = new ConnectionFactory();
+                    factory.UserName = ConfigurationManager.AppSettings["UserName"].ToString();
+                    factory.Password = ConfigurationManager.AppSettings["Password"].ToString();
+                    factory.VirtualHost = ConfigurationManager.AppSettings["VirtualHost"].ToString();
+                    factory.Protocol = Protocols.FromEnvironment();
+                    factory.HostName = ConfigurationManager.AppSettings["HostName"].ToString();// "210.211.102.123";
+                    factory.Port = int.Parse(ConfigurationManager.AppSettings["Port"].ToString());// 5672;
+                    IConnection conn = factory.CreateConnection();
+                    // The IConnection interface can then be used to open a channel:
+                    IModel channel = conn.CreateModel();
+
+                    #endregion
+                    foreach (DataRow row in data.Rows)
+                    {
+                        wp = new WayPoint();
+                        wp.vehicle = Commond.GetStringFieldValue(row, "Vehicle");
+                        wp.driver = Commond.GetStringFieldValue(row, "Driver");
+                        nowDate = Commond.GetDateTimeFieldValue(row, "Datetime"); ;
+                        wp.datetime = DateTimeToUnixTimestamp(new DateTime(nowDate.Year, nowDate.Month, nowDate.Day, nowDate.Hour, nowDate.Minute, nowDate.Second, nowDate.Millisecond, DateTimeKind.Local));
+                        wp.speed = Commond.GetFloatFieldValue(row, "Speed");
+                        wp.x = Commond.GetDoubleFieldValue(row, "x");
+                        wp.y = Commond.GetDoubleFieldValue(row, "y");
+                        wp.z = Commond.GetFloatFieldValue(row, "z");
+                        wp.heading = Commond.GetFloatFieldValue(row, "Heading");
+                        wp.ignition = Commond.GetBooleanFieldValue(row, "Ignition");
+                        wp.door = Commond.GetBooleanFieldValue(row, "Door");
+                        wp.aircon = Commond.GetBooleanFieldValue(row, "AirCon");
+                        wp.maxvalidspeed = Commond.GetDoubleFieldValue(row, "MaxValidSpeed");
+                        wp.vss = Commond.GetFloatFieldValue(row, "VSS");
+                        wp.location = Commond.GetStringFieldValue(row, "Location");
+                        listWP.Add(wp);
+                        //SendData(wp);
+
+                        BaseMessage msg = new BaseMessage();
+                        msg.msgType = BaseMessage.MsgType.WayPoint;
+                        Extensible.AppendValue<WayPoint>(msg, ufms.BaseMessage.MsgType.WayPoint.GetHashCode(), wp);
+                        byte[] b = this.Serialize(msg);
+                        channel.BasicPublish(ConfigurationManager.AppSettings["Exchange"].ToString(), ConfigurationManager.AppSettings["RoutingKey"].ToString(), null, b);
+                    }
+
+
+                    #region Endconnection
+                    channel.Close();
+                    conn.Close();
+                    #endregion
+                }
+                catch (Exception c)
+                {
+                    lbLog.Text = "Lỗi kết nối: " + c.Message;
+                    Utilities.WriteLog("Lỗi kết nối: " + c.Message);
+
                 }
                 dataGridView1.DataSource = data;//listWP
                 dataWP.DataSource = listWP;
@@ -135,8 +170,8 @@ namespace SendDataMQ
                 lbDS.Text = "Kiểm tra kết nối database.";
                 return 0;
             }
-           
-            
+
+
         }
 
 
@@ -144,11 +179,7 @@ namespace SendDataMQ
         {
             try
             {
-                BaseMessage msg = new BaseMessage();
-                msg.msgType = BaseMessage.MsgType.WayPoint;
-                Extensible.AppendValue<WayPoint>(msg, ufms.BaseMessage.MsgType.WayPoint.GetHashCode(), wp);
-                byte[] b = this.Serialize(msg);
-                // connection
+
                 ConnectionFactory factory = new ConnectionFactory();
                 factory.UserName = ConfigurationManager.AppSettings["UserName"].ToString();
                 factory.Password = ConfigurationManager.AppSettings["Password"].ToString();
@@ -159,7 +190,15 @@ namespace SendDataMQ
                 IConnection conn = factory.CreateConnection();
                 // The IConnection interface can then be used to open a channel:
                 IModel channel = conn.CreateModel();
+
+                BaseMessage msg = new BaseMessage();
+                msg.msgType = BaseMessage.MsgType.WayPoint;
+                Extensible.AppendValue<WayPoint>(msg, ufms.BaseMessage.MsgType.WayPoint.GetHashCode(), wp);
+                byte[] b = this.Serialize(msg);
+                // connection
+
                 channel.BasicPublish(ConfigurationManager.AppSettings["Exchange"].ToString(), ConfigurationManager.AppSettings["RoutingKey"].ToString(), null, b);
+
                 channel.Close();
                 conn.Close();
                 return 1;
