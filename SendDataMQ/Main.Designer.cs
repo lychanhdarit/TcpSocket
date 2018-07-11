@@ -34,23 +34,26 @@
             this.lblCountDown = new System.Windows.Forms.Label();
             this.lbCountAll = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.lbDS = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnStop = new System.Windows.Forms.Button();
-            this.lbDS = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.dataWP = new System.Windows.Forms.DataGridView();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataWP)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 83);
+            this.dataGridView1.Location = new System.Drawing.Point(10, 367);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(906, 384);
+            this.dataGridView1.Size = new System.Drawing.Size(906, 231);
             this.dataGridView1.TabIndex = 8;
             // 
             // btnSendAMQP
@@ -109,6 +112,16 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Thông báo";
             // 
+            // lbDS
+            // 
+            this.lbDS.AutoSize = true;
+            this.lbDS.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDS.Location = new System.Drawing.Point(7, 20);
+            this.lbDS.Name = "lbDS";
+            this.lbDS.Size = new System.Drawing.Size(102, 13);
+            this.lbDS.TabIndex = 12;
+            this.lbDS.Text = "Đã gửi: 0 bản tin!";
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.lbCountAll);
@@ -118,7 +131,7 @@
             this.groupBox2.Size = new System.Drawing.Size(127, 43);
             this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Thực hiện sau 2 phút";
+            this.groupBox2.Text = "Thực hiện sau 3 phút";
             // 
             // groupBox1
             // 
@@ -144,16 +157,6 @@
             this.btnStop.UseVisualStyleBackColor = true;
             this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
             // 
-            // lbDS
-            // 
-            this.lbDS.AutoSize = true;
-            this.lbDS.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDS.Location = new System.Drawing.Point(7, 20);
-            this.lbDS.Name = "lbDS";
-            this.lbDS.Size = new System.Drawing.Size(102, 13);
-            this.lbDS.TabIndex = 12;
-            this.lbDS.Text = "Đã gửi: 0 bản tin!";
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -164,12 +167,32 @@
             this.label1.TabIndex = 12;
             this.label1.Text = "Danh sách dữ liệu vừa gửi:";
             // 
+            // dataWP
+            // 
+            this.dataWP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataWP.Location = new System.Drawing.Point(10, 92);
+            this.dataWP.Name = "dataWP";
+            this.dataWP.Size = new System.Drawing.Size(906, 231);
+            this.dataWP.TabIndex = 8;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(7, 339);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(162, 13);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "Danh sách dữ liệu database";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(931, 481);
+            this.ClientSize = new System.Drawing.Size(931, 610);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.dataWP);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnSendAMQP);
             this.Controls.Add(this.groupBox3);
@@ -185,6 +208,7 @@
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataWP)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -203,6 +227,8 @@
         private System.Windows.Forms.Button btnStop;
         private System.Windows.Forms.Label lbDS;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView dataWP;
+        private System.Windows.Forms.Label label2;
     }
 }
 

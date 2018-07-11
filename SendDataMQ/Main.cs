@@ -1,8 +1,10 @@
 ﻿using ProtoBuf;
 using RabbitMQ.Client;
+using ServerData;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.IO;
@@ -23,10 +25,6 @@ namespace SendDataMQ
 
         private void btnSendAMQP_Click(object sender, EventArgs e)
         {
-            //DbClass _db = new DbClass();
-            //DataTable data = new DataTable();
-            //data = _db.GetDataSMS("select * from GPS_REALTIME_SEND_DATA");
-            //dataGridView1.DataSource = data;
             timer1 = new System.Windows.Forms.Timer();
             timer1.Tick += new EventHandler(timer1_Tick);
             timer1.Interval = 1000; // 1 second
@@ -51,8 +49,16 @@ namespace SendDataMQ
             countForAll--;
             if (countForAll == 0)
             {
-                CallSend(1);
-                lbLog.Text = "Đã gửi tất cả lúc " + DateTime.Now.ToString();
+                int result = CallSend(1);
+                if(result == 1)
+                {
+                    lbLog.Text = "Đã gửi tất cả lúc " + DateTime.Now.ToString();
+                }
+                else
+                {
+                    lbLog.Text = "Không gửi được.";
+                }
+                
                 countForAll = 180;
                 if (counter == 0)
                 {
@@ -63,8 +69,16 @@ namespace SendDataMQ
             {
                 if (counter == 0)
                 {
-                    CallSend(0);
-                    lbLog.Text = "Chỉ gửi IGNITION = 1 lúc " + DateTime.Now.ToString();
+                    int result = CallSend(0);
+                    if (result == 1)
+                    {
+                        lbLog.Text = "Chỉ gửi IGNITION = 1 lúc " + DateTime.Now.ToString();
+                    }
+                    else
+                    {
+                        lbLog.Text = "Không gửi được.";
+                    }
+                    
                     counter = 30;
                 }
             }
@@ -72,7 +86,7 @@ namespace SendDataMQ
             lblCountDown.Text = counter.ToString();
             lbCountAll.Text = countForAll.ToString();
         }
-        private void CallSend(int all)
+        private int CallSend(int all)
         {
             //all :1 - where :0
             DateTime nowDate = DateTime.Now;
@@ -90,30 +104,41 @@ namespace SendDataMQ
                 data = _db.GetDataSMS("select * from GPS_REALTIME_SEND_DATA");
             }
             List<WayPoint> listWP = new List<WayPoint>();
-            foreach (DataRow row in data.Rows)
+            if(data != null)
             {
-                wp = new WayPoint();
-                wp.vehicle = Commond.GetStringFieldValue(row, "Vehicle");
-                wp.driver = Commond.GetStringFieldValue(row, "Driver");
-                nowDate = Commond.GetDateTimeFieldValue(row, "Datetime"); ;
-                wp.datetime = DateTimeToUnixTimestamp(new DateTime(nowDate.Year, nowDate.Month, nowDate.Day, nowDate.Hour, nowDate.Minute, nowDate.Second, nowDate.Millisecond, DateTimeKind.Local));
-                wp.speed = Commond.GetFloatFieldValue(row, "Speed");
-                wp.x = Commond.GetDoubleFieldValue(row, "x");
-                wp.y = Commond.GetDoubleFieldValue(row, "y");
-                wp.z = Commond.GetFloatFieldValue(row, "z");
-                wp.heading = Commond.GetFloatFieldValue(row, "Heading");
-                wp.ignition = Commond.GetBooleanFieldValue(row, "Ignition");
-                wp.door = Commond.GetBooleanFieldValue(row, "Door");
-                wp.aircon = Commond.GetBooleanFieldValue(row, "AirCon");
-                wp.maxvalidspeed = Commond.GetDoubleFieldValue(row, "MaxValidSpeed");
-                wp.vss = Commond.GetFloatFieldValue(row, "VSS");
-                wp.location = Commond.GetStringFieldValue(row, "Location");
-                listWP.Add(wp);
-                SendData(wp);
+                foreach (DataRow row in data.Rows)
+                {
+                    wp = new WayPoint();
+                    wp.vehicle = Commond.GetStringFieldValue(row, "Vehicle");
+                    wp.driver = Commond.GetStringFieldValue(row, "Driver");
+                    nowDate = Commond.GetDateTimeFieldValue(row, "Datetime"); ;
+                    wp.datetime = DateTimeToUnixTimestamp(new DateTime(nowDate.Year, nowDate.Month, nowDate.Day, nowDate.Hour, nowDate.Minute, nowDate.Second, nowDate.Millisecond, DateTimeKind.Local));
+                    wp.speed = Commond.GetFloatFieldValue(row, "Speed");
+                    wp.x = Commond.GetDoubleFieldValue(row, "x");
+                    wp.y = Commond.GetDoubleFieldValue(row, "y");
+                    wp.z = Commond.GetFloatFieldValue(row, "z");
+                    wp.heading = Commond.GetFloatFieldValue(row, "Heading");
+                    wp.ignition = Commond.GetBooleanFieldValue(row, "Ignition");
+                    wp.door = Commond.GetBooleanFieldValue(row, "Door");
+                    wp.aircon = Commond.GetBooleanFieldValue(row, "AirCon");
+                    wp.maxvalidspeed = Commond.GetDoubleFieldValue(row, "MaxValidSpeed");
+                    wp.vss = Commond.GetFloatFieldValue(row, "VSS");
+                    wp.location = Commond.GetStringFieldValue(row, "Location");
+                    listWP.Add(wp);
+                    SendData(wp);
+                }
+                dataGridView1.DataSource = data;//listWP
+                dataWP.DataSource = listWP;
+                lbDS.Text = "Đã gửi: " + data.Rows.Count + " bản tin.";
+                return 1;
+            }
+            else
+            {
+                lbDS.Text = "Kiểm tra kết nối database.";
+                return 0;
             }
            
-            dataGridView1.DataSource = data;//listWP
-            lbDS.Text = "Đã gửi: " + data.Rows.Count + " bản tin.";
+            
         }
 
 
@@ -127,16 +152,16 @@ namespace SendDataMQ
                 byte[] b = this.Serialize(msg);
                 // connection
                 ConnectionFactory factory = new ConnectionFactory();
-                factory.UserName = "atg";
-                factory.Password = "VZxp85_RZ";
-                factory.VirtualHost = "/";
+                factory.UserName = ConfigurationManager.AppSettings["UserName"].ToString();
+                factory.Password = ConfigurationManager.AppSettings["Password"].ToString();
+                factory.VirtualHost = ConfigurationManager.AppSettings["VirtualHost"].ToString();
                 factory.Protocol = Protocols.FromEnvironment();
-                factory.HostName = "27.118.27.118";// "210.211.102.123";
-                factory.Port = 5674;// 5672;
+                factory.HostName = ConfigurationManager.AppSettings["HostName"].ToString();// "210.211.102.123";
+                factory.Port = int.Parse(ConfigurationManager.AppSettings["Port"].ToString());// 5672;
                 IConnection conn = factory.CreateConnection();
                 // The IConnection interface can then be used to open a channel:
                 IModel channel = conn.CreateModel();
-                channel.BasicPublish("tracking.atg", "track1", null, b);
+                channel.BasicPublish(ConfigurationManager.AppSettings["Exchange"].ToString(), ConfigurationManager.AppSettings["RoutingKey"].ToString(), null, b);
                 channel.Close();
                 conn.Close();
                 return 1;
@@ -144,6 +169,7 @@ namespace SendDataMQ
             catch (Exception c)
             {
                 lbLog.Text = "Lỗi kết nối: " + c.Message;
+                Utilities.WriteLog("Lỗi kết nối: " + c.Message);
                 return 1;
             }
         }

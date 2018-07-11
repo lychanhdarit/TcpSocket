@@ -46,6 +46,9 @@
     <Reference Include="RabbitMQ.ServiceModel">
       <HintPath>..\SendMS\src\lib\RabbitMQ.ServiceModel.dll</HintPath>
     </Reference>
+    <Reference Include="ServerData">
+      <HintPath>..\ServerData\bin\Debug\ServerData.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
