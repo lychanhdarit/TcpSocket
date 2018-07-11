@@ -42,7 +42,7 @@ namespace SendDataMQ
             timer1.Stop();
         }
         private System.Windows.Forms.Timer timer1;
-        private int counter = 30, countForAll = 180;//speed 0: 180 
+        private int counter = int.Parse(ConfigurationManager.AppSettings["Timer30s"].ToString()), countForAll = int.Parse(ConfigurationManager.AppSettings["Timer180s"].ToString());//speed 0: 180 
         private void timer1_Tick(object sender, EventArgs e)
         {
             counter--;
@@ -58,11 +58,10 @@ namespace SendDataMQ
                 {
                     lbLog.Text = "Không gửi được.";
                 }
-                
-                countForAll = 180;
+                countForAll = int.Parse(ConfigurationManager.AppSettings["Timer180s"].ToString());
                 if (counter == 0)
                 {
-                    counter = 30;
+                    counter = int.Parse(ConfigurationManager.AppSettings["Timer30s"].ToString());
                 }
             }
             else
@@ -78,8 +77,7 @@ namespace SendDataMQ
                     {
                         lbLog.Text = "Không gửi được.";
                     }
-                    
-                    counter = 30;
+                    counter = int.Parse(ConfigurationManager.AppSettings["Timer30s"].ToString());
                 }
             }
             //timer1.Stop();
@@ -97,11 +95,11 @@ namespace SendDataMQ
             DataTable data = new DataTable();
             if (all == 0)// chỉ gửi speed > 0
             {
-                data = _db.GetDataSMS("select * from GPS_REALTIME_SEND_DATA where IGNITION = 1");
+                data = _db.GetDataSMS(ConfigurationManager.AppSettings["SqlCommand30s"].ToString());
             }
             else// gửi tất cả > 0
             {
-                data = _db.GetDataSMS("select * from GPS_REALTIME_SEND_DATA");
+                data = _db.GetDataSMS(ConfigurationManager.AppSettings["SqlCommand180s"].ToString());
             }
             List<WayPoint> listWP = new List<WayPoint>();
             if(data != null)
