@@ -128,8 +128,9 @@ namespace SendDataMQ
                         nowDate = Commond.GetDateTimeFieldValue(row, "Datetime"); ;
                         wp.datetime = DateTimeToUnixTimestamp(new DateTime(nowDate.Year, nowDate.Month, nowDate.Day, nowDate.Hour, nowDate.Minute, nowDate.Second, nowDate.Millisecond, DateTimeKind.Local));
                         wp.speed = Commond.GetFloatFieldValue(row, "Speed");
-                        wp.x = Commond.GetDoubleFieldValue(row, "x");
-                        wp.y = Commond.GetDoubleFieldValue(row, "y");
+                        wp.x = Commond.GetDoubleFieldValue(row, "y");
+                        wp.y = Commond.GetDoubleFieldValue(row, "x");
+                        // Change lat lng
                         wp.z = Commond.GetFloatFieldValue(row, "z");
                         wp.heading = Commond.GetFloatFieldValue(row, "Heading");
                         wp.ignition = Commond.GetBooleanFieldValue(row, "Ignition");

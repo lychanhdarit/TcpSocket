@@ -33,7 +33,6 @@ D:\Developer\TcpSocket\SendDataMQ\obj\Debug\SendDataMQ.csproj.CoreCompileInputs.
 D:\Developer\TcpSocket\SendDataMQ\obj\Debug\SendDataMQ.csproj.CopyComplete
 D:\Developer\TcpSocket\SendDataMQ\obj\Debug\SendDataMQ.exe
 D:\Developer\TcpSocket\SendDataMQ\obj\Debug\SendDataMQ.pdb
-D:\Developer\TcpSocket\SendDataMQ\obj\Debug\SendDataMQ.csprojResolveAssemblyReference.cache
 D:\SOCKET\TcpSocket\SendDataMQ\bin\Debug\ServerData.dll
 D:\SOCKET\TcpSocket\SendDataMQ\bin\Debug\ServerData.pdb
 D:\SOCKET\TcpSocket\SendDataMQ\obj\Debug\SendDataMQ.csprojResolveAssemblyReference.cache
