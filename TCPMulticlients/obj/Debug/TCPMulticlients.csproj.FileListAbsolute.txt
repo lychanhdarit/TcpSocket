@@ -1,0 +1,6 @@
+D:\Developer\TcpSocket\TCPMulticlients\bin\Debug\TCPMulticlients.exe.config
+D:\Developer\TcpSocket\TCPMulticlients\bin\Debug\TCPMulticlients.exe
+D:\Developer\TcpSocket\TCPMulticlients\bin\Debug\TCPMulticlients.pdb
+D:\Developer\TcpSocket\TCPMulticlients\obj\Debug\TCPMulticlients.csproj.CoreCompileInputs.cache
+D:\Developer\TcpSocket\TCPMulticlients\obj\Debug\TCPMulticlients.exe
+D:\Developer\TcpSocket\TCPMulticlients\obj\Debug\TCPMulticlients.pdb
