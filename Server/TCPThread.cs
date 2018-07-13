@@ -68,7 +68,6 @@ namespace Server
                 try
                 {
                     readBytes = clientSocket.Receive(Buffer);
-                    
                     if (readBytes > 0)
                     {
                         //Packet packet = new Packet(Buffer);
@@ -85,7 +84,7 @@ namespace Server
                             
                         }
 
-                        Console.WriteLine(DateTime.Now.ToString() + ": ");
+                        Console.WriteLine("Revc " + DateTime.Now.ToString() +" "+ clientSocket.RemoteEndPoint+ ": ");
                         PrintWithColor(msg);
                         //PrintWithColor("Bit: " + BitConvert(Buffer));
                         //PrintWithColorSilver("---------------------------");
@@ -124,6 +123,7 @@ namespace Server
                 }
                 catch(Exception c)
                 {
+                   
                     Console.WriteLine(c.Message);
                     //PrintWithColorRed("Disconnect! ");
                     return;
@@ -135,6 +135,7 @@ namespace Server
             byte[] byteArray=  data.TakeWhile((v, index) => data.Skip(index).Any(w => w != 0x00)).ToArray();
             return BitConverter.ToString(byteArray).Replace("-",string.Empty); //To convert the whole array
         }
+
         public static void DataManager(Packet p)
         {
             switch (p.packetType)

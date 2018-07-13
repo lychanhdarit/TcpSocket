@@ -141,7 +141,6 @@ namespace SendDataMQ
                         wp.location = Commond.GetStringFieldValue(row, "Location");
                         listWP.Add(wp);
                         //SendData(wp);
-
                         BaseMessage msg = new BaseMessage();
                         msg.msgType = BaseMessage.MsgType.WayPoint;
                         Extensible.AppendValue<WayPoint>(msg, ufms.BaseMessage.MsgType.WayPoint.GetHashCode(), wp);
@@ -159,7 +158,6 @@ namespace SendDataMQ
                 {
                     lbLog.Text = "Lỗi kết nối: " + c.Message;
                     Utilities.WriteLog("Lỗi kết nối: " + c.Message);
-
                 }
                 dataGridView1.DataSource = data;//listWP
                 dataWP.DataSource = listWP;
