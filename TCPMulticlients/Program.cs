@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ServerData;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
@@ -15,7 +16,7 @@ namespace TCPMulticlients
         // Client  socket.
         public Socket workSocket = null;
         // Size of receive buffer.
-        public const int BufferSize = 1024;
+        public const int BufferSize = 65507;
         // Receive buffer.
         public byte[] buffer = new byte[BufferSize];
         // Received data string.
@@ -106,49 +107,83 @@ namespace TCPMulticlients
             StateObject state = (StateObject)ar.AsyncState;
             Socket handler = state.workSocket;
             // Read data from the client socket. 
-            int bytesRead = handler.EndReceive(ar);
-            string DeviceID = ConfigurationManager.AppSettings["deviceID"].ToString();
-            string DeCODE = ConfigurationManager.AppSettings["DeCODE"].ToString();
-            if (bytesRead > 0)
+            try
             {
-
-                // There  might be more data, so store the data received so far.
-                state.sb.Append(Encoding.ASCII.GetString(
-                    state.buffer, 0, bytesRead));
-                // Check for end-of-file tag. If it is not there, read 
-                // more data.
-
-                content = state.sb.ToString();
-                //if (content.IndexOf("<EOF>") > -1)
-                //{
-                // All the data has been read from the 
-                // client. Display it on the console.
-                if (DeCODE == "1")
+                int bytesRead = handler.EndReceive(ar);
+                string DeviceID = ConfigurationManager.AppSettings["deviceID"].ToString();
+                string DeCODE = ConfigurationManager.AppSettings["DeCODE"].ToString();
+                string StringT = ConfigurationManager.AppSettings["StringT"].ToString();
+                string[] StringTFirstKey = StringT.Split(',');
+                if (bytesRead > 0)
                 {
-                    content = GetHexStringFrom(state.buffer);
+
+                    // There  might be more data, so store the data received so far.
+                    state.sb.Append(Encoding.ASCII.GetString(
+                        state.buffer, 0, bytesRead));
+                    // Check for end-of-file tag. If it is not there, read 
+                    // more data.
+
+                    content = state.sb.ToString();
+                    //if (content.IndexOf("<EOF>") > -1)
+                    //{
+                    // All the data has been read from the 
+                    // client. Display it on the console.
+                    if (DeCODE == "1")
+                    {
+                        content = GetHexStringFrom(state.buffer);
+                    }
+                    //else
+                    //{
+                    //    var byteArray = bytesRead.TakeWhile((v, index) => Buffer.Skip(index).Any(w => w != 0x00)).ToArray();
+                    //  content = Encoding.ASCII.GetString(byteArray, 0, byteArray.Length);
+
+                    //}
+
+                    Console.WriteLine("Revc " + DateTime.Now.ToString() + " " + handler.RemoteEndPoint + ": Read {0} bytes from socket. \n Data : {1}",
+                            content.Length, content);
+                    Utilities.WriteLog(content);
+                    DbClass _db = new DbClass();
+                    if (StringTFirstKey.Length > 0)
+                    {
+
+                        for (int i = 0; i < StringTFirstKey.Length; i++)
+                        {
+                            //Console.WriteLine("ST: "+StringTFirstKey[i] );
+                            if (content.IndexOf(StringTFirstKey[i]) > -1 && StringTFirstKey[i].Replace(" ", "") != "")
+                            {
+                                _db.excuteMsgToDB(int.Parse(DeviceID), content);
+                                break;
+                            }
+                        }
+
+                    }
+                    else
+                    {
+
+                        //if (msg.IndexOf(StringT) > -1 && StringT != "")
+                        //{
+                        _db.excuteMsgToDB(int.Parse(DeviceID), content);
+
+                        //}
+                    }
+                    // Echo the data back to the client.
+                    Send(handler, content);
+                    //}
+                    //else
+                    //{
+                    //    // Not all data received. Get more.
+                    //    handler.BeginReceive(state.buffer, 0, StateObject.BufferSize, 0,
+                    //    new AsyncCallback(ReadCallback), state);
+                    //}
                 }
-                //else
-                //{
-                //    var byteArray = bytesRead.TakeWhile((v, index) => Buffer.Skip(index).Any(w => w != 0x00)).ToArray();
-                //  content = Encoding.ASCII.GetString(byteArray, 0, byteArray.Length);
-
-                //}
-
-                Console.WriteLine("Revc " + DateTime.Now.ToString() + " " + handler.RemoteEndPoint + ": Read {0} bytes from socket. \n Data : {1}",
-                        content.Length, content);
-                DbClass _db = new DbClass();
-
-                _db.excuteMsgToDB(int.Parse(DeviceID), content);
-                // Echo the data back to the client.
-                Send(handler, content);
-                //}
-                //else
-                //{
-                //    // Not all data received. Get more.
-                //    handler.BeginReceive(state.buffer, 0, StateObject.BufferSize, 0,
-                //    new AsyncCallback(ReadCallback), state);
-                //}
             }
+            catch (Exception)
+            {
+                handler.BeginReceive(state.buffer, 0, StateObject.BufferSize, 0,
+                new AsyncCallback(ReadCallback), state);
+
+            }
+
         }
         public static string GetHexStringFrom(byte[] data)
         {

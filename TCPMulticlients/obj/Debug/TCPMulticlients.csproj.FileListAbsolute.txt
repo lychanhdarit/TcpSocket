@@ -4,3 +4,12 @@ D:\Developer\TcpSocket\TCPMulticlients\bin\Debug\TCPMulticlients.pdb
 D:\Developer\TcpSocket\TCPMulticlients\obj\Debug\TCPMulticlients.csproj.CoreCompileInputs.cache
 D:\Developer\TcpSocket\TCPMulticlients\obj\Debug\TCPMulticlients.exe
 D:\Developer\TcpSocket\TCPMulticlients\obj\Debug\TCPMulticlients.pdb
+D:\SOCKET\TcpSocket\TCPMulticlients\bin\Debug\TCPMulticlients.exe.config
+D:\SOCKET\TcpSocket\TCPMulticlients\bin\Debug\TCPMulticlients.exe
+D:\SOCKET\TcpSocket\TCPMulticlients\bin\Debug\TCPMulticlients.pdb
+D:\SOCKET\TcpSocket\TCPMulticlients\bin\Debug\Oracle.ManagedDataAccess.dll
+D:\SOCKET\TcpSocket\TCPMulticlients\bin\Debug\ServerData.dll
+D:\SOCKET\TcpSocket\TCPMulticlients\bin\Debug\ServerData.pdb
+D:\SOCKET\TcpSocket\TCPMulticlients\obj\Debug\TCPMulticlients.csprojResolveAssemblyReference.cache
+D:\SOCKET\TcpSocket\TCPMulticlients\obj\Debug\TCPMulticlients.exe
+D:\SOCKET\TcpSocket\TCPMulticlients\obj\Debug\TCPMulticlients.pdb
