@@ -179,8 +179,8 @@ namespace TCPMulticlients
             }
             catch (Exception)
             {
-                handler.BeginReceive(state.buffer, 0, StateObject.BufferSize, 0,
-                new AsyncCallback(ReadCallback), state);
+                //handler.BeginReceive(state.buffer, 0, StateObject.BufferSize, 0,
+                //new AsyncCallback(ReadCallback), state);
 
             }
 

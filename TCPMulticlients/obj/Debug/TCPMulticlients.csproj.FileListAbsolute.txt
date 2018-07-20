@@ -13,3 +13,15 @@ D:\SOCKET\TcpSocket\TCPMulticlients\bin\Debug\ServerData.pdb
 D:\SOCKET\TcpSocket\TCPMulticlients\obj\Debug\TCPMulticlients.csprojResolveAssemblyReference.cache
 D:\SOCKET\TcpSocket\TCPMulticlients\obj\Debug\TCPMulticlients.exe
 D:\SOCKET\TcpSocket\TCPMulticlients\obj\Debug\TCPMulticlients.pdb
+D:\2018 PROJECT\SOCKET\TcpSocket\TCPMulticlients\bin\Debug\TCPMulticlients.exe.config
+D:\2018 PROJECT\SOCKET\TcpSocket\TCPMulticlients\bin\Debug\TCPMulticlients.exe
+D:\2018 PROJECT\SOCKET\TcpSocket\TCPMulticlients\bin\Debug\TCPMulticlients.pdb
+D:\2018 PROJECT\SOCKET\TcpSocket\TCPMulticlients\bin\Debug\Oracle.ManagedDataAccess.dll
+D:\2018 PROJECT\SOCKET\TcpSocket\TCPMulticlients\bin\Debug\ServerData.dll
+D:\2018 PROJECT\SOCKET\TcpSocket\TCPMulticlients\bin\Debug\ServerData.pdb
+D:\2018 PROJECT\SOCKET\TcpSocket\TCPMulticlients\bin\Debug\ServerData.dll.config
+D:\2018 PROJECT\SOCKET\TcpSocket\TCPMulticlients\obj\Debug\TCPMulticlients.csprojResolveAssemblyReference.cache
+D:\2018 PROJECT\SOCKET\TcpSocket\TCPMulticlients\obj\Debug\TCPMulticlients.csproj.CoreCompileInputs.cache
+D:\2018 PROJECT\SOCKET\TcpSocket\TCPMulticlients\obj\Debug\TCPMulticlients.csproj.CopyComplete
+D:\2018 PROJECT\SOCKET\TcpSocket\TCPMulticlients\obj\Debug\TCPMulticlients.exe
+D:\2018 PROJECT\SOCKET\TcpSocket\TCPMulticlients\obj\Debug\TCPMulticlients.pdb
