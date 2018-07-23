@@ -37,3 +37,6 @@ D:\SOCKET\TcpSocket\SendDataMQ\bin\Debug\ServerData.dll
 D:\SOCKET\TcpSocket\SendDataMQ\bin\Debug\ServerData.pdb
 D:\SOCKET\TcpSocket\SendDataMQ\obj\Debug\SendDataMQ.csprojResolveAssemblyReference.cache
 D:\Developer\TcpSocket\SendDataMQ\obj\Debug\SendDataMQ.csprojResolveAssemblyReference.cache
+D:\SOCKET\GTIS Projects\SendDataMQ\bin\Debug\SendDataMQ.exe.config
+D:\SOCKET\GTIS Projects\SendDataMQ\obj\Debug\SendDataMQ.exe
+D:\SOCKET\GTIS Projects\SendDataMQ\obj\Debug\SendDataMQ.pdb
