@@ -226,7 +226,14 @@ namespace TCPMulticlients
 
         public static int Main(String[] args)
         {
-            StartListening();
+            //string StringT = ConfigurationManager.AppSettings["StringT"].ToString();
+            //string[] StringTFirstKey = StringT.Split(',');
+            //for(int i=0;i<StringTFirstKey.Length;i++)
+            //{
+            //    Console.WriteLine(StringTFirstKey[i]);
+            //}
+            //Console.ReadKey();
+           StartListening();
             return 0;
         }
     }
