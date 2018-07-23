@@ -1,9 +1,0 @@
-C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\Server\bin\Debug\Server.exe.config
-C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\Server\bin\Debug\Server.exe
-C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\Server\bin\Debug\Server.pdb
-C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\Server\bin\Debug\Oracle.ManagedDataAccess.dll
-C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\Server\bin\Debug\ServerData.dll
-C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\Server\bin\Debug\ServerData.pdb
-C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\Server\obj\Debug\Server.csprojResolveAssemblyReference.cache
-C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\Server\obj\Debug\Server.exe
-C:\DEVELOPER\FINAL SOCKET\MultiProjectGTIS\Server\obj\Debug\Server.pdb
