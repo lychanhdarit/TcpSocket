@@ -25,3 +25,14 @@ D:\SOCKET\TcpSocket\TCPMulticlients\bin\Debug\ServerData.pdb
 D:\SOCKET\TcpSocket\TCPMulticlients\obj\Debug\TCPMulticlients.exe
 D:\SOCKET\TcpSocket\TCPMulticlients\obj\Debug\TCPMulticlients.pdb
 D:\SOCKET\TcpSocket\TCPMulticlients\obj\Debug\TCPMulticlients.csprojResolveAssemblyReference.cache
+D:\SPARTAN\ConsoleApp\TcpSocket\TCPMulticlients\bin\Debug\TCPMulticlients.exe.config
+D:\SPARTAN\ConsoleApp\TcpSocket\TCPMulticlients\bin\Debug\TCPMulticlients.exe
+D:\SPARTAN\ConsoleApp\TcpSocket\TCPMulticlients\bin\Debug\TCPMulticlients.pdb
+D:\SPARTAN\ConsoleApp\TcpSocket\TCPMulticlients\bin\Debug\Oracle.ManagedDataAccess.dll
+D:\SPARTAN\ConsoleApp\TcpSocket\TCPMulticlients\bin\Debug\ServerData.dll
+D:\SPARTAN\ConsoleApp\TcpSocket\TCPMulticlients\bin\Debug\ServerData.pdb
+D:\SPARTAN\ConsoleApp\TcpSocket\TCPMulticlients\bin\Debug\ServerData.dll.config
+D:\SPARTAN\ConsoleApp\TcpSocket\TCPMulticlients\obj\Debug\TCPMulticlients.csprojAssemblyReference.cache
+D:\SPARTAN\ConsoleApp\TcpSocket\TCPMulticlients\obj\Debug\TCPMulticlients.csproj.CopyComplete
+D:\SPARTAN\ConsoleApp\TcpSocket\TCPMulticlients\obj\Debug\TCPMulticlients.exe
+D:\SPARTAN\ConsoleApp\TcpSocket\TCPMulticlients\obj\Debug\TCPMulticlients.pdb

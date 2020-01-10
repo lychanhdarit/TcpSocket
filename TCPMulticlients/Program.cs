@@ -123,6 +123,12 @@ namespace TCPMulticlients
                     // Check for end-of-file tag. If it is not there, read 
                     // more data.
 
+                    //-
+                    Console.WriteLine("Mã linh tinh---------------");
+                    Console.WriteLine(state.sb);
+                    Console.WriteLine("Mã Hex----------------------");
+                    Console.WriteLine(GetHexStringFrom(state.buffer));
+                    Console.WriteLine("Mã String------------------");
                     content = state.sb.ToString();
                     //if (content.IndexOf("<EOF>") > -1)
                     //{
@@ -167,7 +173,7 @@ namespace TCPMulticlients
                         //}
                     }
                     // Echo the data back to the client.
-                    Send(handler, content);
+                    Send(handler, 0x9001);
                     //}
                     //else
                     //{
@@ -181,7 +187,6 @@ namespace TCPMulticlients
             {
                 //handler.BeginReceive(state.buffer, 0, StateObject.BufferSize, 0,
                 //new AsyncCallback(ReadCallback), state);
-
             }
 
         }
@@ -197,6 +202,17 @@ namespace TCPMulticlients
 
 
             byte[] byteData = Encoding.ASCII.GetBytes(data);
+
+            // Begin sending the data to the remote device.
+            handler.BeginSend(byteData, 0, byteData.Length, 0,
+                new AsyncCallback(SendCallback), handler);
+        }
+        private static void Send(Socket handler, int data)
+        {
+            // Convert the string data to byte data using ASCII encoding.
+
+
+            byte[] byteData = Encoding.ASCII.GetBytes(data.ToString());
 
             // Begin sending the data to the remote device.
             handler.BeginSend(byteData, 0, byteData.Length, 0,
