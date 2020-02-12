@@ -23,29 +23,35 @@ namespace UDPThread
         {
             try
             {
-                OracleCommand cmd = new OracleCommand();
-                OracleConnection con = getConn();
-                con.Open();
-                //Console.WriteLine("Connect data Ok!");
-                cmd.CommandText = ConfigurationManager.AppSettings["PROCEDURE"].ToString();
-                cmd.CommandType = CommandType.StoredProcedure;
+                string pushDB = ConfigurationManager.AppSettings["PushDB"].ToString();
+                if (pushDB == "1")
+                {
+                    OracleCommand cmd = new OracleCommand();
+                    OracleConnection con = getConn();
+                    con.Open();
+                    //Console.WriteLine("Connect data Ok!");
+                    cmd.CommandText = ConfigurationManager.AppSettings["PROCEDURE"].ToString();
+                    cmd.CommandType = CommandType.StoredProcedure;
 
-                //deviceID
-                OracleParameter deviceID = new OracleParameter("pDeviceID", OracleDbType.Int32);
-                deviceID.Value = Device_ID;
-                cmd.Parameters.Add(deviceID);
-                //StringT
-                OracleParameter StringT = new OracleParameter("pStringT", OracleDbType.Varchar2);
-                StringT.Value = data;
-                cmd.Parameters.Add(StringT);
+                    //deviceID
+                    OracleParameter deviceID = new OracleParameter("pDeviceID", OracleDbType.Int32);
+                    deviceID.Value = Device_ID;
+                    cmd.Parameters.Add(deviceID);
+                    //StringT
+                    OracleParameter StringT = new OracleParameter("pStringT", OracleDbType.Varchar2);
+                    StringT.Value = data;
+                    cmd.Parameters.Add(StringT);
 
-                cmd.Connection = con;
-                cmd.ExecuteNonQuery();
+                    cmd.Connection = con;
+                    cmd.ExecuteNonQuery();
 
-                con.Close();
-                Console.WriteLine("Execute DB: " + data + " DeviceId: " + Device_ID);
-                
-                //Utilities.WriteLog("Execute DB: " + data + " DeviceId: " + Device_ID);
+                    con.Close();
+                    Console.WriteLine("Execute DB: " + data + " DeviceId: " + Device_ID);
+
+                    //Utilities.WriteLog("Execute DB: " + data + " DeviceId: " + Device_ID);
+
+                }
+
             }
 
             catch (OracleException e)

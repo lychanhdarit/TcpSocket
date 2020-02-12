@@ -44,49 +44,66 @@ namespace ServerData
 
         public static void WriteLog(string message)
         {
-            StreamWriter sw = null;
             try
             {
-                string path = ConfigurationManager.AppSettings["PathSave"].ToString();
-                if (path == "")
+                StreamWriter sw = null;
+                string writeLog = ConfigurationManager.AppSettings["WriteLog"].ToString();
+                if (writeLog == "1")
                 {
-                    path = AppDomain.CurrentDomain.BaseDirectory;
+                    try
+                    {
+                        string path = ConfigurationManager.AppSettings["PathSave"].ToString();
+                        if (path == "")
+                        {
+                            path = AppDomain.CurrentDomain.BaseDirectory;
+                        }
+
+                        string filename = DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString();
+                        sw = new StreamWriter(path + "Log-" + filename + ".txt", true);
+                        sw.WriteLine(DateTime.Now.ToString("dd-MM-yyyy hh:mm:ss tt") + ": " + message);
+                        sw.Flush();
+                        sw.Close();
+                    }
+                    catch
+                    {
+                        PrintWithColorRed("Error: Invalid path!");
+
+                    }
+
                 }
-
-                string filename = DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString();
-                sw = new StreamWriter(path + "Log-"+ filename + ".txt", true);
-                sw.WriteLine(DateTime.Now.ToString("dd-MM-yyyy hh:mm:ss tt") + ": " + message);
-                sw.Flush();
-                sw.Close();
             }
-            catch
+            catch(Exception e)
             {
-                PrintWithColorRed("Error: Invalid path!");
-                
-            }
 
+            }
+           
+            
+            
         }
         public static void WriteLogSocketError(string message)
         {
             StreamWriter sw = null;
             try
             {
-                string path = ConfigurationManager.AppSettings["PathSave"].ToString();
-                if (path == "")
+                string writeLog = ConfigurationManager.AppSettings["WriteErrorLog"].ToString();
+                if (writeLog == "1")
                 {
-                    path = AppDomain.CurrentDomain.BaseDirectory;
-                }
+                    string path = ConfigurationManager.AppSettings["PathSave"].ToString();
+                    if (path == "")
+                    {
+                        path = AppDomain.CurrentDomain.BaseDirectory;
+                    }
 
-                string filename = DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + "-SOCKET";
-                sw = new StreamWriter(path + "Log-" + filename + ".txt", true);
-                sw.WriteLine(DateTime.Now.ToString("dd-MM-yyyy hh:mm:ss tt") + ": " + message);
-                sw.Flush();
-                sw.Close();
+                    string filename = DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + "-SOCKET";
+                    sw = new StreamWriter(path + "Log-" + filename + ".txt", true);
+                    sw.WriteLine(DateTime.Now.ToString("dd-MM-yyyy hh:mm:ss tt") + ": " + message);
+                    sw.Flush();
+                    sw.Close();
+                }
             }
             catch
             {
-                PrintWithColorRed("Error: Invalid path!");
-
+                PrintWithColorRed("Error: Invalid path!"); 
             }
         }
 
@@ -135,16 +152,20 @@ namespace ServerData
             StreamWriter sw = null;
             try
             {
-                string path = ConfigurationManager.AppSettings["PathSave"].ToString();
-                if(path == "")
+                string writeLog = ConfigurationManager.AppSettings["WriteLogDatabase"].ToString();
+                if (writeLog == "1")
                 {
-                    path = AppDomain.CurrentDomain.BaseDirectory;
+                    string path = ConfigurationManager.AppSettings["PathSave"].ToString();
+                    if (path == "")
+                    {
+                        path = AppDomain.CurrentDomain.BaseDirectory;
+                    }
+                    string filename = DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + "-DATABASE";
+                    sw = new StreamWriter(path + "Log-" + filename + "-lost.txt", true);
+                    sw.WriteLine(DateTime.Now.ToString("dd-MM-yyyy hh:mm:ss tt") + ": " + message);
+                    sw.Flush();
+                    sw.Close();
                 }
-                string filename = DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString()+"-DATABASE";
-                sw = new StreamWriter( path + "Log-" + filename + "-lost.txt", true);
-                sw.WriteLine(DateTime.Now.ToString("dd-MM-yyyy hh:mm:ss tt")  + ": " + message);
-                sw.Flush();
-                sw.Close();
             }
             catch
             {

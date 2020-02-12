@@ -1,0 +1,6 @@
+D:\SPARTAN\ConsoleApp\TcpSocket\Timer\bin\Debug\Timer.exe.config
+D:\SPARTAN\ConsoleApp\TcpSocket\Timer\bin\Debug\Timer.exe
+D:\SPARTAN\ConsoleApp\TcpSocket\Timer\bin\Debug\Timer.pdb
+D:\SPARTAN\ConsoleApp\TcpSocket\Timer\obj\Debug\Timer.csprojAssemblyReference.cache
+D:\SPARTAN\ConsoleApp\TcpSocket\Timer\obj\Debug\Timer.exe
+D:\SPARTAN\ConsoleApp\TcpSocket\Timer\obj\Debug\Timer.pdb

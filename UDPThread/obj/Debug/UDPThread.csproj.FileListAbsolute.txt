@@ -46,3 +46,14 @@ D:\SOCKET\TcpSocket\UDPThread\bin\Debug\ServerData.pdb
 D:\SOCKET\TcpSocket\UDPThread\obj\Debug\UDPThread.csprojResolveAssemblyReference.cache
 D:\SOCKET\TcpSocket\UDPThread\obj\Debug\UDPThread.exe
 D:\SOCKET\TcpSocket\UDPThread\obj\Debug\UDPThread.pdb
+D:\SPARTAN\ConsoleApp\TcpSocket\UDPThread\bin\Debug\UDPThread.exe.config
+D:\SPARTAN\ConsoleApp\TcpSocket\UDPThread\bin\Debug\UDPThread.exe
+D:\SPARTAN\ConsoleApp\TcpSocket\UDPThread\bin\Debug\UDPThread.pdb
+D:\SPARTAN\ConsoleApp\TcpSocket\UDPThread\bin\Debug\Oracle.ManagedDataAccess.dll
+D:\SPARTAN\ConsoleApp\TcpSocket\UDPThread\bin\Debug\ServerData.dll
+D:\SPARTAN\ConsoleApp\TcpSocket\UDPThread\bin\Debug\ServerData.pdb
+D:\SPARTAN\ConsoleApp\TcpSocket\UDPThread\bin\Debug\ServerData.dll.config
+D:\SPARTAN\ConsoleApp\TcpSocket\UDPThread\obj\Debug\UDPThread.csprojAssemblyReference.cache
+D:\SPARTAN\ConsoleApp\TcpSocket\UDPThread\obj\Debug\UDPThread.csproj.CopyComplete
+D:\SPARTAN\ConsoleApp\TcpSocket\UDPThread\obj\Debug\UDPThread.exe
+D:\SPARTAN\ConsoleApp\TcpSocket\UDPThread\obj\Debug\UDPThread.pdb

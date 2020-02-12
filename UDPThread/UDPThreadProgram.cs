@@ -15,7 +15,7 @@ namespace UDPThread
     {
 
         public Thread sampleUdpThread;
-
+        public Thread restartThread;
         static string PORT = ConfigurationManager.AppSettings["Port"].ToString();
         static string IP_CORE_ADDRESS = ConfigurationManager.AppSettings["IPAddress"].ToString();
         public UDPThreadProgram()
@@ -31,6 +31,17 @@ namespace UDPThread
                 PrintWithColorGreen("-----------------------------------------------------------\n");
 
                 //Console.WriteLine("Started SampleTcpUdpServer's UDP Receiver Thread!\n");
+
+                try
+                {
+                    restartThread = new Thread(new ThreadStart(RestartApp));
+                    restartThread.Start();
+                }
+                catch (Exception e)
+                {
+                    Utilities.WriteLog(e.ToString());
+                    sampleUdpThread.Abort();
+                }
             }
             catch (Exception e)
             {
@@ -38,13 +49,43 @@ namespace UDPThread
                 Utilities.WriteLog(e.ToString());
                 sampleUdpThread.Abort();
             }
+
+            
         }
         static void Main(string[] args)
         {
-            UDPThreadProgram sts = new UDPThreadProgram();
+            UDPThreadProgram sts = new UDPThreadProgram(); 
         }
+        private static void TimerCallback(Object o)
+        {
+            // Display the date/time when this method got called.
+            //Console.WriteLine("In TimerCallback: " + DateTime.Now);
+            // Force a garbage collection to occur for this demo.
+            GC.Collect();
+            int hourRestart = 12;
+            try
+            {
+                hourRestart = int.Parse(ConfigurationManager.AppSettings["timeRestart"].ToString());
+            }
+            catch  {}
 
-        public void StartReceive()
+            DateTime nowdate = DateTime.Now;
+            if (nowdate.Hour == hourRestart && nowdate.Minute == 1 && nowdate.Second == 1)
+            {
+                Utilities.WriteLog("Restart App!");
+                //sampleUdpThread.Abort();
+                //Start process, friendly name is something like MyApp.exe (from current bin directory)
+                System.Diagnostics.Process.Start(System.AppDomain.CurrentDomain.FriendlyName);
+                //Close the current process
+                Environment.Exit(0);
+            }
+            
+        }
+        public void RestartApp()
+        {
+            Timer t = new Timer(TimerCallback, null, 0, 1000); 
+        }
+       public void StartReceive()
         {
             try
             {
@@ -52,17 +93,19 @@ namespace UDPThread
                 //Create a UDP socket.
                 Socket soUdp = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
                 IPEndPoint localIpEndPoint = new IPEndPoint(IPAddress.Parse(IP_CORE_ADDRESS), int.Parse(PORT));
-
+                //soUdp.Listen(500);
                 soUdp.Bind(localIpEndPoint);
+               
                 string DeCODE = ConfigurationManager.AppSettings["DeCODE"].ToString();
                 while (true)
                 {
                     try
                     {
+                        
                         Byte[] received = new Byte[65507];
                         IPEndPoint tmpIpEndPoint = new IPEndPoint(IPAddress.Parse(IP_CORE_ADDRESS), int.Parse(PORT));
                         EndPoint remoteEP = (tmpIpEndPoint);
-
+                      
 
                         int bytesReceived = 0;
                         try
@@ -123,10 +166,10 @@ namespace UDPThread
             {
                 return "ML";
             }
-            if (data.IndexOf("ST") > -1)
-            {
-                return "ST";
-            }
+            //if (data.IndexOf("ST") > -1)
+            //{
+            //    return "ST";
+            //}
             return "";
         }
         public static string GetHexStringFrom(byte[] data)
@@ -170,18 +213,18 @@ namespace UDPThread
                         Utilities.WriteLog("Send:" + sendString);
                     }
                     break;
-                case "ST":
-                    if (Adta.Length > 8)
-                    {
+                //case "ST":
+                //    if (Adta.Length > 8)
+                //    {
 
 
-                        sendString = Adta[0] + "," + Adta[1] + "," + Adta[2] + "," + Adta[8] + "," + Adta[9] + "#";
-                        socket.SendTo(Encoding.ASCII.GetBytes(sendString), ep);
-                        PrintWithColorGreen("Send " + DateTime.Now.ToString("dd-MM-yyyy hh:mm:ss tt") + ":" + sendString);
-                        PrintWithColorSilver("-----------------------------------------------------------");
-                        Utilities.WriteLog("Send:" + sendString);
-                    }
-                    break;
+                //        sendString = Adta[0] + "," + Adta[1] + "," + Adta[2] + "," + Adta[8] + "," + Adta[9] + "#";
+                //        socket.SendTo(Encoding.ASCII.GetBytes(sendString), ep);
+                //        PrintWithColorGreen("Send " + DateTime.Now.ToString("dd-MM-yyyy hh:mm:ss tt") + ":" + sendString);
+                //        PrintWithColorSilver("-----------------------------------------------------------");
+                //        Utilities.WriteLog("Send:" + sendString);
+                //    }
+                //    break;
             }
 
             //Excute to DB

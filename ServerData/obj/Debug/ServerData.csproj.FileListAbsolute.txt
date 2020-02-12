@@ -26,3 +26,11 @@ D:\SOCKET\TcpSocket\ServerData\bin\Debug\Oracle.ManagedDataAccess.dll
 D:\SOCKET\TcpSocket\ServerData\obj\Debug\ServerData.dll
 D:\SOCKET\TcpSocket\ServerData\obj\Debug\ServerData.pdb
 D:\Developer\TcpSocket\ServerData\obj\Debug\ServerData.csprojResolveAssemblyReference.cache
+D:\SPARTAN\ConsoleApp\TcpSocket\ServerData\bin\Debug\ServerData.dll.config
+D:\SPARTAN\ConsoleApp\TcpSocket\ServerData\bin\Debug\ServerData.dll
+D:\SPARTAN\ConsoleApp\TcpSocket\ServerData\bin\Debug\ServerData.pdb
+D:\SPARTAN\ConsoleApp\TcpSocket\ServerData\bin\Debug\Oracle.ManagedDataAccess.dll
+D:\SPARTAN\ConsoleApp\TcpSocket\ServerData\obj\Debug\ServerData.csproj.CopyComplete
+D:\SPARTAN\ConsoleApp\TcpSocket\ServerData\obj\Debug\ServerData.dll
+D:\SPARTAN\ConsoleApp\TcpSocket\ServerData\obj\Debug\ServerData.pdb
+D:\SPARTAN\ConsoleApp\TcpSocket\ServerData\obj\Debug\ServerData.csprojAssemblyReference.cache
